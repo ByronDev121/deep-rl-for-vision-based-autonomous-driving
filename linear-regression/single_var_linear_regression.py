@@ -4,7 +4,7 @@ from matplotlib import cm
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
-from linear_regression_gradient_decent import LinearRegressionUsingGD
+from single_var_gradient_decent import LinearRegressionUsingGD
 
 
 def plot_result(x, y, y_predicted):
@@ -60,7 +60,15 @@ def get_cost_function(theta_1, theta_2, x, y, points_n):
     return cost
 
 
-def plot_cost_function(theta_1, theta_2, x, y, points_n):
+def create_mesh_grid():
+    theta_1 = np.arange(-10, 14, 0.05)
+    theta_2 = np.arange(-100, 100, 0.05)
+    theta_1, theta_2 = np.meshgrid(theta_1, theta_2)
+    return theta_1, theta_2
+
+
+def plot_cost_function(x, y, points_n):
+    theta_1, theta_2, = create_mesh_grid()
     cost = get_cost_function(theta_1, theta_2, x, y, points_n)
     plot_cost_function_3d(theta_1, theta_2, cost)
     plot_cost_function_2d(theta_1, theta_2, cost)
@@ -73,13 +81,6 @@ def plot_raw_data(x, y):
     plt.show()
 
 
-def create_mesh_grid():
-    theta_1 = np.arange(-10, 14, 0.05)
-    theta_2 = np.arange(-100, 100, 0.05)
-    theta_1, theta_2 = np.meshgrid(theta_1, theta_2)
-    return theta_1, theta_2
-
-
 def create_data(points_n):
     x = np.random.rand(points_n, 1) * 20
     y = (2 * (x + (2 * np.random.rand(points_n, 1)))) + 1
@@ -89,10 +90,9 @@ def create_data(points_n):
 def main():
     points_n = 50
     x, y = create_data(points_n)
-    theta_1, theta_2, = create_mesh_grid()
 
     plot_raw_data(x, y)
-    plot_cost_function(theta_1, theta_2, x, y, points_n)
+    plot_cost_function(x, y, points_n)
 
     # Model initialization
     # Sci-kit learn implementation:

@@ -39,7 +39,7 @@ class LinearRegressionUsingGD:
             total_error += (y[i] - (self.w * x[i] + self.b)) ** 2
         return total_error / total
 
-    def _update_weights(self, x, y):
+    def _update_weights(self, x: object, y: object):
         weight_deriv = 0
         bias_deriv = 0
         length = len(x)
