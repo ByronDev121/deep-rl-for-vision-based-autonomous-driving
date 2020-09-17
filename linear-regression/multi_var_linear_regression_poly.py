@@ -5,28 +5,18 @@ from multi_var_gradient_decent import LinearRegressionUsingGD
 from mpl_toolkits.mplot3d import axes3d
 from sklearn.metrics import mean_squared_error, r2_score
 
-
 def create_mesh_grid(start, end):
     theta_1 = np.linspace(start, end, 30)
     theta_2 = np.linspace(start, end, 30)
     theta_1, theta_2 = np.meshgrid(theta_1, theta_2)
     return theta_1, theta_2
 
-
-def plot_result(x1, x2, y, regression_model):
+def plot_result(x, y, y_pred):
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-
-    ax.scatter(x1, x2, y, c='b', marker='o')
-    ax.set_xlabel('\u03B81')
-    ax.set_ylabel('\u03B82')
-    ax.set_zlabel('h(\u03B81, \u03B82)')
-
-    X1, X2 = create_mesh_grid(0, 1)
-    w = regression_model.w
-    Z = w[0][0] + w[1][0] * X1 + w[2][0] * X2
-
-    ax.plot_wireframe(X1, X2, Z, color='red')
+    plt.scatter(x, y)
+    plt.scatter(x, y_pred, color='red')
+    plt.xlabel('\u03B80')
+    plt.ylabel('\u03B81')
     plt.show()
 
 
@@ -55,28 +45,32 @@ def get_cost_function(theta_1, theta_2, x1, y, points_n):
 
 
 def plot_cost_function(x, y, points_n):
-    theta_1, theta_2, = create_mesh_grid(-5, 15)
+    theta_1, theta_2, = create_mesh_grid(0, 30)
     cost = get_cost_function(theta_1, theta_2, x, y, points_n)
     plot_cost_function_2d(theta_1, theta_2, cost)
 
 
-def plot_raw_data(x1, x2, y):
+def plot_raw_data(x, y):
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.scatter(x1, x2, y, c='b', marker='o')
+    plt.scatter(x,y)
     plt.xlabel('\u03B80')
     plt.ylabel('\u03B81')
-    ax.set_zlabel('h(\u03B81, \u03B82)')
     plt.show()
 
 
 def create_data(points_n):
     np.random.seed(0)
     x = np.random.rand(points_n, 2)
-    x1 = np.sort(x[:, 0].reshape(points_n, 1))
-    x2 = np.sort(x[:, 1].reshape(points_n, 1))
+    x1 = x[:, 0].reshape(points_n, 1)
+    x2 = x[:, 0].reshape(points_n, 1) ** (8)
 
-    y = 2 + 3 * x1 + np.random.rand(points_n, 1) + 6 * x2 + np.random.rand(points_n, 1)
+    x[:, 0] = x1.reshape(points_n,)
+    x[:, 1] = x2.reshape(points_n,)
+
+    x1 = x1 / x1.max()
+    x2 = x2 / x2.max()
+
+    y = 2 + 3 * x1 + np.random.rand(points_n, 1) + 32 * x2 + np.random.rand(points_n, 1)
 
     return x, x1, x2, y
 
@@ -85,7 +79,7 @@ def main():
     points_n = 100
     x, x1, x2, y = create_data(points_n)
 
-    plot_raw_data(x1, x2, y)
+    plot_raw_data(x1, y)
     plot_cost_function(x1, y, points_n)
     plot_cost_function(x2, y, points_n)
 
@@ -106,9 +100,10 @@ def main():
     print('R2 score: ', r2)
 
     # plot
-    plot_result(x1, x2, y, regression_model)
+    plot_result(x1, y, y_predicted)
 
 
 if __name__ == '__main__':
     main()
+
 

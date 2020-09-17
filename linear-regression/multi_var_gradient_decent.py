@@ -25,7 +25,7 @@ class LinearRegressionUsingGD:
         Predict Y given the training data X, using the trained model h(x)
     """
 
-    def __init__(self, lr=0.05, n_iterations=100):
+    def __init__(self, lr, n_iterations):
         self.lr = lr
         self.n_iterations = n_iterations
         self.cost_ = []
@@ -66,7 +66,7 @@ class LinearRegressionUsingGD:
                 )
 
         plt.subplots(1, 1)
-        plt.plot(range(0, 100), self.cost_)
+        plt.plot(range(0, self.n_iterations), self.cost_)
         plt.xlabel('Iterations')
         plt.ylabel('J(\u03B80, \u03B81)')
         plt.show()
