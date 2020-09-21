@@ -13,21 +13,35 @@ def sigmoid(x):
     return a
 
 
-def log(x):
-    a = []
-    for item in x:
-        a.append(1/(1+math.exp(-item)))
-    return a
-
-
 def plot_sigmoid():
     x = np.arange(-10, 10, 0.2)
     sig = sigmoid(x)
-
     fig, ax = plt.subplots()
     ax.plot(x, sig, label='g(z) = 1 / 1 - x^-z')
-
+    plt.legend()
     ax.set(xlabel='z', ylabel='g(z)')
+    ax.grid()
+
+    plt.show()
+
+
+def log(x):
+    a = []
+    b = []
+    for item in x:
+        a.append(-math.log(item))
+        b.append(-math.log(1-item))
+    return a, b
+
+
+def plot_log():
+    x = np.arange(0.01, 1, 0.01)
+    f1, f2 = log(x)
+    fig, ax = plt.subplots()
+    ax.plot(x, f1, label='J(\u03B8) = - log( h(x) )')
+    ax.plot(x, f2, label='J(\u03B8) = - log( 1 - h(x) )')
+    plt.legend()
+    ax.set(xlabel='h(x)', ylabel='J(\u03B8)')
     ax.grid()
 
     plt.show()
@@ -46,39 +60,46 @@ def accuracy(y_predicted, actual_classes, probab_threshold=0.5):
     return accuracy * 100
 
 
-def plot_decision_boundary(parameters):
+def raw_plot(malignant, benign):
+    plt.scatter(malignant.iloc[:, 1], malignant.iloc[:, 2], s=10, label='Malignant')
+    plt.scatter(benign.iloc[:, 1], benign.iloc[:, 2], s=10, label='Benign')
+    plt.legend()
+    plt.xlabel('Mean Area')
+    plt.ylabel('Mean Compactness')
+    plt.show()
+
+
+def plot_decision_boundary(parameters, malignant, benign):
     x_values = [0.1, 0.4]
     y_values = - (parameters[0] + np.dot(parameters[1], x_values)) / parameters[2]
 
-    # plt.subplots(1, 1)
+    plt.scatter(malignant.iloc[:, 1], malignant.iloc[:, 2], s=10, label='Malignant')
+    plt.scatter(benign.iloc[:, 1], benign.iloc[:, 2], s=10, label='Benign')
     plt.plot(x_values, y_values, label='Decision Boundary')
-    plt.xlabel('area_mean')
-    plt.ylabel('compactness_mean')
+    plt.xlabel('Mean Area')
+    plt.ylabel('Mean Compactness')
     plt.legend()
     plt.show()
 
 
-if __name__ == "__main__":
-    # plot_sigmoid()
-
-    # load the data from the file
-    # data = load_data("breast cancer.csv", None)
+def get_data_frame():
     df = pd.read_csv('breast cancer.csv',
-                      delimiter=',',
-                      names=["id","diagnosis","radius_mean","texture_mean","perimeter_mean",
-                             "area_mean","smoothness_mean","compactness_mean","concavity_mean",
-                             "concave points_mean","symmetry_mean","fractal_dimension_mean","radius_se",
-                             "texture_se","perimeter_se","area_se","smoothness_se","compactness_se",
-                             "concavity_se","concave points_se","symmetry_se","fractal_dimension_se",
-                             "radius_worst","texture_worst","perimeter_worst","area_worst","smoothness_worst",
-                             "compactness_worst","concavity_worst","concave points_worst","symmetry_worst",
-                             "fractal_dimension_worst",])
+                     delimiter=',',
+                     names=["id", "diagnosis", "radius_mean", "texture_mean", "perimeter_mean",
+                            "area_mean", "smoothness_mean", "compactness_mean", "concavity_mean",
+                            "concave points_mean", "symmetry_mean", "fractal_dimension_mean", "radius_se",
+                            "texture_se", "perimeter_se", "area_se", "smoothness_se", "compactness_se",
+                            "concavity_se", "concave points_se", "symmetry_se", "fractal_dimension_se",
+                            "radius_worst", "texture_worst", "perimeter_worst", "area_worst", "smoothness_worst",
+                            "compactness_worst", "concavity_worst", "concave points_worst", "symmetry_worst",
+                            "fractal_dimension_worst", ])
 
     df["diagnosis"] = df["diagnosis"].replace('M', 1)
     df["diagnosis"] = df["diagnosis"].replace('B', 0)
 
     df.insert(1, 'Theta 0', 1)
     X = df.iloc[:, [1, 6, 7]]
+    # X = df.iloc[:, :]
 
     X['area_mean'] = X['area_mean'] / np.max(X['area_mean'])
     X['smoothness_mean'] = X['smoothness_mean'] / np.max(X['smoothness_mean'])
@@ -92,20 +113,22 @@ if __name__ == "__main__":
     # filter out the applicants that din't get admission
     benign = X.loc[y == 0]
 
-    # plots
-    plt.scatter(malignant.iloc[:, 1], malignant.iloc[:, 2], s=10, label='Malignant')
-    plt.scatter(benign.iloc[:, 1], benign.iloc[:, 2], s=10, label='Benign')
-    plt.legend()
-    # plt.show()
+    return X, y, malignant, benign
 
-    # Model initialization
+
+if __name__ == "__main__":
+    plot_sigmoid()
+    plot_log()
+
+    X, y, malignant, benign = get_data_frame()
+
+    raw_plot(malignant, benign)
+
     regression_model = GradientDescent()
-    # Fit the data(train the model)
     model = regression_model.fit(X, y)
-    # Predict
     y_predicted = regression_model.predict(X)
 
-    plot_decision_boundary(model.theta)
+    plot_decision_boundary(model.theta, malignant, benign)
 
     print('Parameters', model.theta)
     print('Accuracy', accuracy(y_predicted, y))

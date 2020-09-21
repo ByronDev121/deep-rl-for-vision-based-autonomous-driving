@@ -5,15 +5,15 @@ from scipy.optimize import fmin_tnc
 class GradientDescent:
     """Linear Regression Using Gradient Descent.
 
-    Parameters
-    ----------
+        Parameters
+        ----------
 
-      Public Methods
-    -------
-    fit(x, y, theta)
-        Fit model h(x) to the training data
-    predict(x)
-        Predict Y given the training data X, using the trained model h(x)
+        Public Methods
+        -------
+        fit(x, y)
+            Fit model h(x) to the training data
+        predict(x)
+            Predict Y given the training data X, using the trained model h(x)
     """
 
     def __init__(self):
@@ -48,21 +48,19 @@ class GradientDescent:
 
     def fit(self, x, y):
         """Fit the training data
-               Parameters
-               ----------
-               x : array-like, shape = [n_samples, n_features]
-                   Training samples
-               y : array-like, shape = [n_samples, n_target_values]
-                   Target values
+            Parameters
+            ----------
+            x : array-like, shape = [n_samples, n_features]
+               Training samples
+            y : array-like, shape = [n_samples, n_target_values]
+               Target values
 
-               Returns
-               -------
-               self : object
-               """
+            Returns
+            -------
+            self : object
+        """
 
         theta = np.zeros((x.shape[1], 1))
-
-        # return self
 
         opt_weights = fmin_tnc(
             func=self.cost_function,
