@@ -1,0 +1,111 @@
+Date : 2020-10-23 10:48:33
+Directory : h:\Masters\final-masters-code
+Total : 66 files,  179819 codes, 644 comments, 825 blanks, all 181288 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Jupyter    |          3 |    177,003 |          0 |          3 |    177,006 |
+| Python     |         57 |      2,506 |        629 |        757 |      3,892 |
+| Markdown   |          3 |        157 |          0 |         34 |        191 |
+| JavaScript |          1 |        129 |         15 |         30 |        174 |
+| Ini        |          1 |         23 |          0 |          1 |         24 |
+| JSON       |          1 |          1 |          0 |          0 |          1 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                  | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                     |         66 |    179,819 |        644 |        825 |    181,288 |
+| behavioral-cloning                                                                                    |          7 |        302 |         84 |         94 |        480 |
+| deep-rl-keras                                                                                         |         30 |      1,300 |        351 |        328 |      1,979 |
+| deep-rl-keras\A2C                                                                                     |          5 |        140 |         48 |         43 |        231 |
+| deep-rl-keras\A3C                                                                                     |          6 |        200 |         56 |         47 |        303 |
+| deep-rl-keras\DDPG                                                                                    |          4 |        162 |         67 |         42 |        271 |
+| deep-rl-keras\DDQN                                                                                    |          2 |        151 |         47 |         37 |        235 |
+| deep-rl-keras\utils                                                                                   |          9 |        387 |         99 |         99 |        585 |
+| dqn                                                                                                   |         15 |    177,441 |         33 |        130 |    177,604 |
+| dqn\gym_airsim                                                                                        |          3 |        123 |         16 |         42 |        181 |
+| dqn\logs                                                                                              |          1 |          1 |          0 |          0 |          1 |
+| literature-review                                                                                     |         13 |        774 |        176 |        272 |      1,222 |
+| literature-review\gradient-decent-high-level                                                          |          2 |         88 |         10 |         39 |        137 |
+| literature-review\linear-regression                                                                   |          5 |        312 |        113 |        119 |        544 |
+| literature-review\logistic-regression                                                                 |          2 |        129 |         33 |         52 |        214 |
+| literature-review\neural-netowrks                                                                     |          1 |         19 |          2 |         10 |         31 |
+| literature-review\q-learning                                                                          |          3 |        226 |         18 |         52 |        296 |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                              | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| h:\Masters\final-masters-code\README.md                                                               | Markdown   |          2 |          0 |          1 |          3 |
+| h:\Masters\final-masters-code\behavioral-cloning\AirSim_Gym.py                                        | Python     |         36 |          2 |         13 |         51 |
+| h:\Masters\final-masters-code\behavioral-cloning\CNN.py                                               | Python     |         59 |         30 |         13 |        102 |
+| h:\Masters\final-masters-code\behavioral-cloning\__init__.py                                          | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\behavioral-cloning\data-manipulation.py                                 | Python     |         31 |          0 |          9 |         40 |
+| h:\Masters\final-masters-code\behavioral-cloning\drive.py                                             | Python     |         35 |          0 |         11 |         46 |
+| h:\Masters\final-masters-code\behavioral-cloning\train.py                                             | Python     |         53 |         12 |         21 |         86 |
+| h:\Masters\final-masters-code\behavioral-cloning\utils.py                                             | Python     |         88 |         40 |         26 |        154 |
+| h:\Masters\final-masters-code\deep-rl-keras\A2C\__init__.py                                           | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\deep-rl-keras\A2C\a2c.py                                                | Python     |         76 |         29 |         21 |        126 |
+| h:\Masters\final-masters-code\deep-rl-keras\A2C\actor.py                                              | Python     |         27 |          7 |          7 |         41 |
+| h:\Masters\final-masters-code\deep-rl-keras\A2C\agent.py                                              | Python     |         14 |          6 |          6 |         26 |
+| h:\Masters\final-masters-code\deep-rl-keras\A2C\critic.py                                             | Python     |         23 |          6 |          8 |         37 |
+| h:\Masters\final-masters-code\deep-rl-keras\A3C\__init__.py                                           | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\deep-rl-keras\A3C\a3c.py                                                | Python     |         96 |         23 |         16 |        135 |
+| h:\Masters\final-masters-code\deep-rl-keras\A3C\actor.py                                              | Python     |         28 |          8 |          9 |         45 |
+| h:\Masters\final-masters-code\deep-rl-keras\A3C\agent.py                                              | Python     |         16 |          6 |          6 |         28 |
+| h:\Masters\final-masters-code\deep-rl-keras\A3C\critic.py                                             | Python     |         24 |          7 |          8 |         39 |
+| h:\Masters\final-masters-code\deep-rl-keras\A3C\thread.py                                             | Python     |         36 |         12 |          7 |         55 |
+| h:\Masters\final-masters-code\deep-rl-keras\DDPG\__init__.py                                          | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\deep-rl-keras\DDPG\actor.py                                             | Python     |         46 |         20 |         12 |         78 |
+| h:\Masters\final-masters-code\deep-rl-keras\DDPG\critic.py                                            | Python     |         40 |         15 |         11 |         66 |
+| h:\Masters\final-masters-code\deep-rl-keras\DDPG\ddpg.py                                              | Python     |         76 |         32 |         18 |        126 |
+| h:\Masters\final-masters-code\deep-rl-keras\DDQN\agent.py                                             | Python     |         62 |         16 |         15 |         93 |
+| h:\Masters\final-masters-code\deep-rl-keras\DDQN\ddqn.py                                              | Python     |         89 |         31 |         22 |        142 |
+| h:\Masters\final-masters-code\deep-rl-keras\README.md                                                 | Markdown   |        100 |          0 |         26 |        126 |
+| h:\Masters\final-masters-code\deep-rl-keras\__init__.py                                               | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\deep-rl-keras\load_and_run.py                                           | Python     |         77 |         16 |         15 |        108 |
+| h:\Masters\final-masters-code\deep-rl-keras\main.py                                                   | Python     |         83 |         18 |         18 |        119 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\__init__.py                                         | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\atari_environment.py                                | Python     |         31 |          6 |         12 |         49 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\atari_wrappers.py                                   | Python     |        144 |         46 |         26 |        216 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\continuous_environments.py                          | Python     |         31 |          7 |          7 |         45 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\memory_buffer.py                                    | Python     |         60 |         23 |         12 |         95 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\networks.py                                         | Python     |         29 |         10 |          7 |         46 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\plot_results.py                                     | Python     |         42 |          3 |         14 |         59 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\stats.py                                            | Python     |         12 |          2 |          2 |         16 |
+| h:\Masters\final-masters-code\deep-rl-keras\utils\sumtree.py                                          | Python     |         38 |          2 |         18 |         58 |
+| h:\Masters\final-masters-code\dqn\CNN.py                                                              | Python     |         25 |          1 |          6 |         32 |
+| h:\Masters\final-masters-code\dqn\README.md                                                           | Markdown   |         55 |          0 |          7 |         62 |
+| h:\Masters\final-masters-code\dqn\__init__.py                                                         | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\dqn\config.ini                                                          | Ini        |         23 |          0 |          1 |         24 |
+| h:\Masters\final-masters-code\dqn\drive.py                                                            | Python     |         55 |          4 |         20 |         79 |
+| h:\Masters\final-masters-code\dqn\gym_airsim\__init__.py                                              | Python     |          0 |          0 |          1 |          1 |
+| h:\Masters\final-masters-code\dqn\gym_airsim\airsim_car_env.py                                        | Python     |         45 |         10 |         20 |         75 |
+| h:\Masters\final-masters-code\dqn\gym_airsim\car_agent.py                                             | Python     |         78 |          6 |         21 |        105 |
+| h:\Masters\final-masters-code\dqn\logs\dqn_AirSimCarRL_log.json                                       | JSON       |          1 |          0 |          0 |          1 |
+| h:\Masters\final-masters-code\dqn\plot_json_logs.py                                                   | Python     |         70 |          5 |         18 |         93 |
+| h:\Masters\final-masters-code\dqn\train.py                                                            | Python     |         68 |          4 |         24 |         96 |
+| h:\Masters\final-masters-code\dqn\training_car_a2c_steering_only.ipynb                                | Jupyter    |    164,260 |          0 |          1 |    164,261 |
+| h:\Masters\final-masters-code\dqn\training_car_ppo2_steering_only.ipynb                               | Jupyter    |      8,339 |          0 |          1 |      8,340 |
+| h:\Masters\final-masters-code\dqn\training_steering_only.ipynb                                        | Jupyter    |      4,404 |          0 |          1 |      4,405 |
+| h:\Masters\final-masters-code\dqn\utils.py                                                            | Python     |         18 |          3 |          8 |         29 |
+| h:\Masters\final-masters-code\literature-review\gradient-decent-high-level\cost_function_plots_2d.py  | Python     |         48 |          8 |         25 |         81 |
+| h:\Masters\final-masters-code\literature-review\gradient-decent-high-level\cost_function_plots_3d.py  | Python     |         40 |          2 |         14 |         56 |
+| h:\Masters\final-masters-code\literature-review\linear-regression\multi_var_gradient_decent.py        | Python     |         35 |         42 |         12 |         89 |
+| h:\Masters\final-masters-code\literature-review\linear-regression\multi_var_linear_regression.py      | Python     |         78 |          6 |         31 |        115 |
+| h:\Masters\final-masters-code\literature-review\linear-regression\multi_var_linear_regression_poly.py | Python     |         75 |          6 |         29 |        110 |
+| h:\Masters\final-masters-code\literature-review\linear-regression\single_var_gradient_decent.py       | Python     |         42 |         47 |         15 |        104 |
+| h:\Masters\final-masters-code\literature-review\linear-regression\single_var_linear_regression.py     | Python     |         82 |         12 |         32 |        126 |
+| h:\Masters\final-masters-code\literature-review\logistic-regression\gradient_descent.py               | Python     |         35 |         29 |         15 |         79 |
+| h:\Masters\final-masters-code\literature-review\logistic-regression\logistic_regression.py            | Python     |         94 |          4 |         37 |        135 |
+| h:\Masters\final-masters-code\literature-review\neural-netowrks\plot.py                               | Python     |         19 |          2 |         10 |         31 |
+| h:\Masters\final-masters-code\literature-review\q-learning\agent.py                                   | Python     |         28 |          0 |         11 |         39 |
+| h:\Masters\final-masters-code\literature-review\q-learning\q-learning.js                              | JavaScript |        129 |         15 |         30 |        174 |
+| h:\Masters\final-masters-code\literature-review\q-learning\q-learning.py                              | Python     |         69 |          3 |         11 |         83 |
+| Total                                                                                                 |            |    179,819 |        644 |        825 |    181,288 |
++-------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
