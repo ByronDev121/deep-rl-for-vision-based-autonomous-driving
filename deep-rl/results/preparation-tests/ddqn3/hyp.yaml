@@ -1,0 +1,15 @@
+algorithm: ddqn
+model_type: NatureCNN
+double_deep: true
+with_per: false
+with_hrs: false
+dueling: false
+train_in_loop: true
+nb_steps: 350000
+batch_size: 64
+lr: 0.00025
+gamma: 0.95
+epsilon_decay: 0.99
+buffer_size: 5000
+augment: false
+track: basic_training_track
