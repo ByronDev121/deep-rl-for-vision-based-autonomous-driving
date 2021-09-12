@@ -4,10 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+
 sns.set_theme(style="darkgrid")
 
 
-def plot_logs_data(x, y, x_name, y_name):
+def plot_logs_data(x, y, ax):
     y = np.nan_to_num(y)
 
     modulo = 7
@@ -16,7 +17,7 @@ def plot_logs_data(x, y, x_name, y_name):
         r = r + 1
         if r % modulo == 0:
             last = r
-        x[r-1] = last
+        x[r - 1] = last
 
     df = pd.DataFrame(
         dict(
@@ -26,20 +27,13 @@ def plot_logs_data(x, y, x_name, y_name):
     )
 
     # Plot the responses for different events and regions
-    sns.relplot(
+    sns.lineplot(
         x="episode",
         y="value",
-        kind="line",
         ci="sd",
-        data=df
+        data=df,
+        ax=ax
     )
-
-
-    # plt.subplots(1, 1)
-    plt.plot(x, y)
-    plt.xlabel(x_name)
-    plt.ylabel(y_name)
-    plt.show()
 
 
 def build_logs_print_object(episodes, data):
@@ -53,9 +47,7 @@ def build_logs_print_object(episodes, data):
     }
 
 
-def get_logs_data():
-    root = str(pathlib.Path().resolve())
-    path = root + '/results/ddqn/average-q-per-episode.json'
+def get_logs_data(path):
     with open(
             path,
             encoding="utf8"
@@ -70,13 +62,43 @@ def get_logs_data():
     return build_logs_print_object(episodes, data)
 
 
-def main():
-    logs_object = get_logs_data()
+def get_logs_data_path(dir):
+    root = str(pathlib.Path().resolve())
+    path = root + '/results/reward-function-ablation-study/' + dir + '/average-q-per-episode.json'
+    return path
 
-    for key in logs_object:
-        # print(key, '->', logs_object[key])
-        if key != "Episode":
-            plot_logs_data(logs_object["Episode"], logs_object[key], "Episode", key)
+
+def main():
+    fig, ax = plt.subplots()
+
+    for el in [
+        'ddqn',
+        'ddqn2',
+        'ddqn3',
+        'ddqn4',
+        'ddqn5',
+        'ddqn6'
+    ]:
+        path = get_logs_data_path(el)
+        logs_object = get_logs_data(path)
+
+        for key in logs_object:
+            x_name = "Episode"
+            y_name = key
+            if key != "Episode":
+                plot_logs_data(logs_object["Episode"], logs_object[key], ax)
+
+    plt.legend(labels=[
+        "Terminal state",
+        "Terminal state + Nearest waypoint",
+        "Terminal state + Center of track",
+        "Terminal state + Car angle",
+        "Terminal state +  Car angle + Center of track",
+        "Terminal state +  Car angle + Nearest waypoint",
+    ])
+    plt.xlabel(x_name)
+    plt.ylabel(y_name)
+    plt.show()
 
 
 if __name__ == "__main__":
