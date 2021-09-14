@@ -1,58 +1,108 @@
-import sys
+import json
+import pathlib
+import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 
-import plotly.plotly as py
-import plotly.graph_objs as go
+sns.set_theme(style="darkgrid")
 
-fill_c = 'rgba(68, 68, 68, 0.1)'
-line_c = ['rgb(31, 119, 180)', 'rgb(180, 80, 110)', 'rgb(180, 119, 31)']
 
-def main(args=None):
+def plot_logs_data(x, y, ax):
+    y = np.nan_to_num(y)
 
-    upper_bound, trace, lower_bound = [], [], []
+    max = y.max()
+    y = y / max
 
-    for i in range(len(sys.argv)-1):
+    modulo = 7
+    last = 0
+    for r in range(len(x)):
+        r = r + 1
+        if r % modulo == 0:
+            last = r
+        x[r - 1] = last
 
-        df = pd.read_csv(sys.argv[i+1])
+    df = pd.DataFrame(
+        dict(
+            episode=x,
+            value=y,
+        )
+    )
 
-        upper_bound.append(go.Scatter(
-            name='Upper Bound',
-            x=df['Episode'],
-            y=df['Mean']+df['Stddev'],
-            mode='lines',
-            marker=dict(color="444"),
-            line=dict(width=0),
-            fillcolor=fill_c,
-            fill='tonexty'))
+    # Plot the responses for different events and regions
+    sns.lineplot(
+        x="episode",
+        y="value",
+        ci="sd",
+        data=df,
+        ax=ax
+    )
 
-        trace.append(go.Scatter(
-            name='Measurement',
-            x=df['Episode'],
-            y=df['Mean'],
-            mode='lines',
-            fillcolor=fill_c,
-            fill='lines'))
 
-        lower_bound.append(go.Scatter(
-            name='Lower Bound',
-            x=df['Episode'],
-            y=df['Mean']-df['Stddev'],
-            marker=dict(color="444"),
-            line=dict(width=0),
-            mode='lines'))
+def build_logs_print_object(episodes, data):
+    # Comment out what you don't want ot print
+    return {
+        "Episode": episodes,
+        # "Average Q Value Per Step": data,
+        # "Average Reward Per Step": data,
+        "Average Q Value": data,
+        # "Average Reward": data
+    }
 
-    # Trace order can be important
-    # with continuous error bars
-    # data = [*lower_bound, *trace, *upper_bound]
-    data = trace
 
-    layout = go.Layout(
-        yaxis=dict(title='Score'),
-        title='Average Reward',
-        showlegend = True)
+def get_logs_data(path):
+    with open(
+            path,
+            encoding="utf8"
+    ) as json_file:
+        raw = json.load(json_file)
+        data = []
+        episodes = []
+        for data_point in raw:
+            episodes.append(data_point[1])
+            data.append(data_point[2])
 
-    fig = go.Figure(data=data, layout=layout)
-    py.iplot(fig, filename='average-reward')
+    return build_logs_print_object(episodes, data)
+
+
+def get_logs_data_path(dir):
+    root = str(pathlib.Path().resolve())
+    path = root + '/results/reward-function-ablation-study/' + dir + '/average-q-per-episode.json'
+    return path
+
+
+def main():
+    fig, ax = plt.subplots()
+
+    for el in [
+        'ddqn',
+        'ddqn4',
+        'ddqn2',
+        'ddqn3',
+        'ddqn6',
+        'ddqn5',
+    ]:
+        path = get_logs_data_path(el)
+        logs_object = get_logs_data(path)
+
+        for key in logs_object:
+            x_name = "Episode"
+            y_name = key
+            if key != "Episode":
+                plot_logs_data(logs_object["Episode"], logs_object[key], ax)
+
+    plt.legend(labels=[
+        "Terminal state",
+        "Terminal state + Car angle",
+        "Terminal state + Nearest waypoint",
+        "Terminal state + Center of track",
+        "Terminal state +  Car angle + Nearest waypoint",
+        "Terminal state +  Car angle + Center of track",
+    ])
+    plt.xlabel(x_name)
+    plt.ylabel(y_name)
+    plt.show()
+
 
 if __name__ == "__main__":
     main()
