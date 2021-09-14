@@ -44,8 +44,8 @@ def build_logs_print_object(episodes, data):
     return {
         "Episode": episodes,
         # "Average Q Value Per Step": data,
-        # "Average Reward Per Step": data,
-        "Average Q Value": data,
+        "Average Reward Per Step": data,
+        # "Average Q Value": data,
         # "Average Reward": data
     }
 
@@ -67,7 +67,7 @@ def get_logs_data(path):
 
 def get_logs_data_path(dir):
     root = str(pathlib.Path().resolve())
-    path = root + '/results/reward-function-ablation-study/' + dir + '/average-q-per-episode.json'
+    path = root + '/results/respawn-study/' + dir + '/average-reward-per-step.json'
     return path
 
 
@@ -75,12 +75,8 @@ def main():
     fig, ax = plt.subplots()
 
     for el in [
-        'ddqn',
-        'ddqn4',
-        'ddqn2',
-        'ddqn3',
-        'ddqn6',
-        'ddqn5',
+        # 'ddqn',
+        'ddqn2'
     ]:
         path = get_logs_data_path(el)
         logs_object = get_logs_data(path)
@@ -91,14 +87,10 @@ def main():
             if key != "Episode":
                 plot_logs_data(logs_object["Episode"], logs_object[key], ax)
 
-    plt.legend(labels=[
-        "Terminal state",
-        "Terminal state + Car angle",
-        "Terminal state + Nearest waypoint",
-        "Terminal state + Center of track",
-        "Terminal state +  Car angle + Nearest waypoint",
-        "Terminal state +  Car angle + Center of track",
-    ])
+    # plt.legend(labels=[
+    #     "2400 steps per episode + 1 spawn location",
+    #     "600 steps per episode + 4 spawn locations"
+    # ])
     plt.xlabel(x_name)
     plt.ylabel(y_name)
     plt.show()
