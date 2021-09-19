@@ -21,7 +21,7 @@ def parse_args(args):
     parser = argparse.ArgumentParser(description='Training parameters')
     #
     parser.add_argument('--algorithm', type=str, default='ddqn',
-                        help="Algorithm to train {ddqn, a2c, ppo}")
+                        help="APolicy algorithm used to train the autonomous driving agent [ddqn, a2c, ppo]")
     #
     parser.add_argument('--model_type', type=str, default='NatureCNN',
                         help="Policy model to train {ddqn}")
@@ -39,40 +39,43 @@ def parse_args(args):
                         help="Use a Dueling Architecture (ddqn)")
     #
     parser.add_argument('--train_in_loop', type=bool, default=False,
-                        help="train q-network in a loop on separate thread")
+                        help="Train q-network in a loop on separate thread")
     #
     parser.add_argument('--nb_steps_per_train_iter', type=int, default=4,
-                        help="train q-network in a loop on separate thread")
+                        help="Number of actions selected by the agent between successive stochastic gradient decent ("
+                             "SGD) updates. Using a value of 4 results in the agent selecting 4 actions between each "
+                             "pair of successive updates")
     #
     parser.add_argument('--nb_episodes', type=int, default=1000,
-                        help="Number of training steps")
+                        help="Number of training episodes")
     #
     parser.add_argument('--target_network_update', type=int, default=250,
-                        help="Number of training steps")
+                        help="The frequency (measured in the number of parameter updates) in which the target network "
+                             "is updated")
     #
     parser.add_argument('--batch_size', type=int, default=32,
-                        help="Batch size (experience replay)")
+                        help="Number of training cases over which each SGD update is computed")
     #
     parser.add_argument('--lr', type=float, default=2.5e-4,
-                        help="Number of training episodes")
+                        help="The learning rate used by the Adam optimizer for each SGD step")
     #
     parser.add_argument('--gamma', type=float, default=0.99,
-                        help="Number of training episodes")
+                        help="Discount factor used in the Q-learning update")
     #
     parser.add_argument('--epsilon', type=float, default=1.0,
-                        help="Number of training episodes")
+                        help="Initial value of epsilon in epsilon-greedy exploration")
     #
     parser.add_argument('--epsilon_decay', type=float, default=0.99,
-                        help="")
+                        help="epsilon decay per episode in epsilon-greedy exploration")
     #
     parser.add_argument('--epsilon_final', type=float, default=0.1,
-                        help="")
+                        help="Final value of epsilon in epsilon-greedy exploration")
     #
     parser.add_argument('--replay_buffer_size', type=int, default=10000,
                         help="Reply buffer size")
     #
     parser.add_argument('--replay_start_size', type=int, default=2500,
-                        help="Reply buffer size")
+                        help="Use uniform random policy for this may steps before sampling replay buffer to train agent")
     #
     parser.add_argument('--augment', type=bool, default=False,
                         help="Augment data with noise before adding to replay bugger")

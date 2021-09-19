@@ -1,7 +1,6 @@
 """ Load and display pre-trained model in OpenAI Gym Environment
 """
 
-import os
 import sys
 import argparse
 import tensorflow as tf

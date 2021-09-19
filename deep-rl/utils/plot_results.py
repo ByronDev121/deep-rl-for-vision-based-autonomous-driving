@@ -14,6 +14,8 @@ def plot_logs_data(x, y, ax):
     max = y.max()
     y = y / max
 
+    average = y.sum() / len(y)
+
     modulo = 7
     last = 0
     for r in range(len(x)):
@@ -44,9 +46,9 @@ def build_logs_print_object(episodes, data):
     return {
         "Episode": episodes,
         # "Average Q Value Per Step": data,
-        "Average Reward Per Step": data,
+        # "Average Reward Per Step": data,
         # "Average Q Value": data,
-        # "Average Reward": data
+        "Average Reward": data
     }
 
 
@@ -67,7 +69,7 @@ def get_logs_data(path):
 
 def get_logs_data_path(dir):
     root = str(pathlib.Path().resolve())
-    path = root + '/results/respawn-study/' + dir + '/average-reward-per-step.json'
+    path = root + '/results/reward-function-ablation-study/' + dir + '/average-reward-per-episode.json'
     return path
 
 
@@ -75,8 +77,8 @@ def main():
     fig, ax = plt.subplots()
 
     for el in [
-        # 'ddqn',
-        'ddqn2'
+        'ddqn5',
+        # 'ddqn2'
     ]:
         path = get_logs_data_path(el)
         logs_object = get_logs_data(path)
@@ -88,8 +90,8 @@ def main():
                 plot_logs_data(logs_object["Episode"], logs_object[key], ax)
 
     # plt.legend(labels=[
-    #     "2400 steps per episode + 1 spawn location",
-    #     "600 steps per episode + 4 spawn locations"
+    #     "1 train iter per 4 steps",
+    #     "train in loop"
     # ])
     plt.xlabel(x_name)
     plt.ylabel(y_name)
