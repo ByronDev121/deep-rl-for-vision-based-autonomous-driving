@@ -11,10 +11,10 @@ sns.set_theme(style="darkgrid")
 def plot_logs_data(x, y, ax):
     y = np.nan_to_num(y)
 
-    max = y.max()
-    y = y / max
-
-    average = y.sum() / len(y)
+    # max = y.max()
+    # y = y / max
+    #
+    # average = y.sum() / len(y)
 
     modulo = 7
     last = 0
@@ -47,8 +47,8 @@ def build_logs_print_object(episodes, data):
         "Episode": episodes,
         # "Average Q Value Per Step": data,
         # "Average Reward Per Step": data,
-        # "Average Q Value": data,
-        "Average Reward": data
+        "Average Q Value": data,
+        # "Average Reward": data
     }
 
 
@@ -69,7 +69,7 @@ def get_logs_data(path):
 
 def get_logs_data_path(dir):
     root = str(pathlib.Path().resolve())
-    path = root + '/results/reward-function-ablation-study/' + dir + '/average-reward-per-episode.json'
+    path = root + '/results/train-iter-per-step-study/' + dir + '/average-q-per-episode.json'
     return path
 
 
@@ -77,8 +77,9 @@ def main():
     fig, ax = plt.subplots()
 
     for el in [
-        'ddqn5',
-        # 'ddqn2'
+        'ddqn',
+        'ddqn2',
+        # 'ddqn3',
     ]:
         path = get_logs_data_path(el)
         logs_object = get_logs_data(path)
@@ -89,10 +90,11 @@ def main():
             if key != "Episode":
                 plot_logs_data(logs_object["Episode"], logs_object[key], ax)
 
-    # plt.legend(labels=[
-    #     "1 train iter per 4 steps",
-    #     "train in loop"
-    # ])
+    plt.legend(labels=[
+        "SGD per 4 steps",
+        "SGD trained in separate loop",
+        # "Custom CNN",
+    ])
     plt.xlabel(x_name)
     plt.ylabel(y_name)
     plt.show()
