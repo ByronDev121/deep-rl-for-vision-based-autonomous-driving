@@ -5,6 +5,7 @@ import numpy as np
 from configparser import ConfigParser
 import gym
 
+
 from .car_agent import CarAgent
 
 sys.path.append('..')
@@ -16,8 +17,11 @@ class AirSimCarEnv(gym.Env):
     """Custom Environment that follows airsim_gym interface"""
     metadata = {'render.modes': ['human']}
 
-    def __init__(self):
+    def __init__(self, stack_axis):
         super().__init__()
+        state_height = int(config['car_agent']['state_height'])
+        state_width = int(config['car_agent']['state_width'])
+        consecutive_frames = int(config['car_agent']['consecutive_frames'])
 
         self.image_height = int(config['airsim_settings']['image_height'])
         self.image_width = int(config['airsim_settings']['image_width'])
@@ -31,8 +35,17 @@ class AirSimCarEnv(gym.Env):
         self.track_width = int(config['airsim_settings']['track_width'])
         self.episode_step_limit = int(config['airsim_settings']['episode_step_limit'])
 
+        # Using discrete actions
+        act_dim = int(config['car_agent']['act_dim'])
+        self.action_space = gym.spaces.Discrete(act_dim)
+        # self.action_space = gym.spaces.Box(np.array([-1]), np.array([+1]))
+
+        # Using image as input)
+        image_shape = (state_height, state_width, consecutive_frames)
+        self.observation_space = gym.spaces.Box(low=0, high=255, shape=image_shape, dtype=np.uint8)
+
         # Instantiate car agent
-        self.car_agent = CarAgent()
+        self.car_agent = CarAgent(stack_axis)
 
         self.previous_distance = None
 

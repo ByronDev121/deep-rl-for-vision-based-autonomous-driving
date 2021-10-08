@@ -3,7 +3,6 @@ import keras.backend as K
 from keras.optimizers import Adam
 from .model import Model
 
-
 class Agent:
     """ Agent Class (Network) for ddqn
     """

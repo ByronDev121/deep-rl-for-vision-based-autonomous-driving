@@ -7,8 +7,8 @@ import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 
 from ddqn.ddqn import DDQN
-# from a2c.a2c import A2C
-# from ppo.ppo import PPO
+from a2c.a2c import A2C_
+from ppo.ppo import PPO_2
 
 from airsim_gym.gym import AirSimCarEnv
 from utils.path import get_export_path
@@ -20,10 +20,10 @@ def parse_args(args):
     """
     parser = argparse.ArgumentParser(description='Training parameters')
     #
-    parser.add_argument('--algorithm', type=str, default='ddqn',
-                        help="APolicy algorithm used to train the autonomous driving agent [ddqn, a2c, ppo]")
+    parser.add_argument('--algorithm', type=str, default='ppo',
+                        help="Algorithm to train {ddqn, a2c, ppo}")
     #
-    parser.add_argument('--model_type', type=str, default='NatureCNN',
+    parser.add_argument('--model_type', type=str, default='CustomCNN',
                         help="Policy model to train {ddqn}")
     #
     parser.add_argument('--double_deep', type=bool, default=True,
@@ -38,44 +38,41 @@ def parse_args(args):
     parser.add_argument('--dueling', type=bool, default=False,
                         help="Use a Dueling Architecture (ddqn)")
     #
-    parser.add_argument('--train_in_loop', type=bool, default=False,
-                        help="Train q-network in a loop on separate thread")
+    parser.add_argument('--train_in_loop', type=bool, default=True,
+                        help="train q-network in a loop on separate thread")
     #
     parser.add_argument('--nb_steps_per_train_iter', type=int, default=4,
-                        help="Number of actions selected by the agent between successive stochastic gradient decent ("
-                             "SGD) updates. Using a value of 4 results in the agent selecting 4 actions between each "
-                             "pair of successive updates")
+                        help="train q-network in a loop on separate thread")
     #
     parser.add_argument('--nb_episodes', type=int, default=1000,
-                        help="Number of training episodes")
+                        help="Number of training steps")
     #
     parser.add_argument('--target_network_update', type=int, default=250,
-                        help="The frequency (measured in the number of parameter updates) in which the target network "
-                             "is updated")
+                        help="Number of training steps")
     #
     parser.add_argument('--batch_size', type=int, default=32,
-                        help="Number of training cases over which each SGD update is computed")
+                        help="Batch size (experience replay)")
     #
     parser.add_argument('--lr', type=float, default=2.5e-4,
-                        help="The learning rate used by the Adam optimizer for each SGD step")
+                        help="Number of training episodes")
     #
     parser.add_argument('--gamma', type=float, default=0.99,
-                        help="Discount factor used in the Q-learning update")
+                        help="Number of training episodes")
     #
     parser.add_argument('--epsilon', type=float, default=1.0,
-                        help="Initial value of epsilon in epsilon-greedy exploration")
+                        help="Number of training episodes")
     #
     parser.add_argument('--epsilon_decay', type=float, default=0.99,
-                        help="epsilon decay per episode in epsilon-greedy exploration")
+                        help="")
     #
     parser.add_argument('--epsilon_final', type=float, default=0.1,
-                        help="Final value of epsilon in epsilon-greedy exploration")
+                        help="")
     #
     parser.add_argument('--replay_buffer_size', type=int, default=10000,
                         help="Reply buffer size")
     #
     parser.add_argument('--replay_start_size', type=int, default=2500,
-                        help="Use uniform random policy for this may steps before sampling replay buffer to train agent")
+                        help="Reply buffer size")
     #
     parser.add_argument('--augment', type=bool, default=False,
                         help="Augment data with noise before adding to replay bugger")
@@ -95,10 +92,15 @@ def keras_session_init(save_dir):
     return tf.summary.FileWriter("{}/tensorboard/".format(save_dir))
 
 
-def instantiate_environment():
+def instantiate_environment(args):
     """ Instantiate AirSim Gym Environment using parameters set in arguments from command line input
     """
-    env = AirSimCarEnv()
+    if args.algorithm == "ddqn":
+        stack_axis = 0
+
+    else:
+        stack_axis = 2
+    env = AirSimCarEnv(stack_axis)
     env.reset()
     return env
 
@@ -109,10 +111,10 @@ def instantiate_algorithm(args, save_dir):
     """
     if args.algorithm == "ddqn":
         return DDQN(args, save_dir)
-    # elif args.algorithm == "a2c":
-    #     return A2C(args)
-    # elif args.algorithm == "ppo":
-    #     return PPO(args)
+    elif args.algorithm == "a2c":
+        return A2C_(save_dir)
+    elif args.algorithm == "ppo":
+        return PPO_2(save_dir)
 
 
 def main(args=None):
@@ -127,7 +129,7 @@ def main(args=None):
     summary_writer = keras_session_init(save_dir)
 
     # Instantiate Environment
-    env = instantiate_environment()
+    env = instantiate_environment(args)
 
     # Instantiate Algorithm
     algorithm = instantiate_algorithm(args, save_dir)

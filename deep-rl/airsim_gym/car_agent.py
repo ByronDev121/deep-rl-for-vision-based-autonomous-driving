@@ -18,7 +18,7 @@ config.read(join(dirname(dirname(abspath(__file__))), 'config.ini'))
 
 class CarAgent(CarClient):
 
-    def __init__(self):
+    def __init__(self, stack_axis):
         # connect to the AirSim simulator
         super().__init__()
         super().confirmConnection()
@@ -47,7 +47,7 @@ class CarAgent(CarClient):
         self.random_spawn = float(config['car_agent']['random_spawn'])
 
         self.steering_values = self._set_steering_values(max_steering_angle, steering_granularity)
-        self.image_processing = ImageProcessing(state_height, state_width, consecutive_frames, act_dim.n, max_steering_angle)
+        self.image_processing = ImageProcessing(state_height, state_width, consecutive_frames, act_dim.n, max_steering_angle, stack_axis)
 
         #
 
@@ -97,9 +97,9 @@ class CarAgent(CarClient):
             size = img1d_rgb.size
 
         img3d_rgb = img1d_rgb.reshape(self.image_height, self.image_width, self.image_channels)
-        processed_image = self.image_processing.preprocess(img3d_rgb, is_new)
+        # processed_image = self.image_processing.preprocess(img3d_rgb, is_new)
 
-        return processed_image
+        return img3d_rgb
 
     def move(self, action):
         car_controls = self._interpret_action(action)
@@ -166,7 +166,7 @@ class CarAgent(CarClient):
         if self.action_mode == 0:  # discrete steering only, throttle is fixed
             car_controls.throttle = self.fixed_throttle
             car_controls.steering = self.steering_values[action]
-        elif self.action_mode == 1:  # kalman-filter continuous steering only, throttle is fixed
+        elif self.action_mode == 1:  # average value continuous steering only, throttle is fixed
             # filter action
             actual_action = self.steering_values[action]
             self.kf.update(actual_action)

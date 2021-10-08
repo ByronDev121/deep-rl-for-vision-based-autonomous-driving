@@ -40,6 +40,7 @@ class DDQN:
         consecutive_frames = int(config['car_agent']['consecutive_frames'])
         act_dim = int(config['car_agent']['act_dim'])
         max_steering_angle = float(config['car_agent']['max_steering_angle'])
+        self.fps = int(config['car_agent']['fps'])
         self.state_dim = (consecutive_frames, state_height, state_width)
         self.act_dim = act_dim
         #
@@ -95,6 +96,7 @@ class DDQN:
             start_time = time.time()
 
             while not done:
+                step_start_time = time.time()
                 # Actor picks an action (following the epsilon-greedy policy)
                 a, q = self.policy_action(state)
                 episode_qs += q
@@ -120,6 +122,10 @@ class DDQN:
                         if train_count % self.target_network_update == 0:
                             self.agent.transfer_weights()
                         time.sleep(0.01)
+
+                step_time = time.time() - step_start_time
+                if step_time < (1/self.fps):
+                    time.sleep((1/self.fps) - step_time)
 
             if cumul_reward > self.best_episode_reward:
                 self.best_episode_reward = cumul_reward

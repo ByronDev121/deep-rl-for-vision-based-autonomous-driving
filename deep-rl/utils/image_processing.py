@@ -11,7 +11,7 @@ class ImageProcessing:
     @param: image_height - Height of image on pixels
     @param: image_channels  - Number of channels to stack frames
     """
-    def __init__(self, image_height, image_width, image_channels, act_dim, max_steering_angle):
+    def __init__(self, image_height, image_width, image_channels, act_dim, max_steering_angle, stack_axis):
         self.stacked_frames = None
         self.image_width = image_width
         self.image_height = image_height
@@ -24,6 +24,7 @@ class ImageProcessing:
         ).tolist()
         self.steering_values.append(max_steering_angle)
         self.steering_values = [round(num, 3) for num in self.steering_values]
+        self.stack_axis = stack_axis
 
     def preprocess(self, image, is_new_episode):
         """
@@ -93,14 +94,14 @@ class ImageProcessing:
                 self.stacked_frames.append(frame)
 
             # Stack the frames
-            stacked_state = np.stack(self.stacked_frames, axis=0)
+            stacked_state = np.stack(self.stacked_frames, axis=self.stack_axis)
 
         else:
             # Append frame to deque, automatically removes the oldest frame
             self.stacked_frames.append(frame)
 
             # Build the stacked state (first dimension specifies different frames)
-            stacked_state = np.stack(self.stacked_frames, axis=0)
+            stacked_state = np.stack(self.stacked_frames, axis=self.stack_axis)
 
         return stacked_state
 

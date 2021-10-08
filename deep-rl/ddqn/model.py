@@ -61,15 +61,12 @@ class Model (Sequential):
         self.add(Dense(100, activation='elu'))
         self.add(Dense(50, activation='elu'))
 
-    # The same model that was described by Bojarski, Mariusz, et al. (2016)
     def build_custom_cnn(self):
         self.add(Permute(dims=(2, 3, 1), input_shape=self.state_dim))
-        self.add(Conv2D(filters=24, kernel_size=8, strides=(4, 4), padding="valid", activation='elu'))
         self.add(Conv2D(filters=32, kernel_size=8, strides=(4, 4), padding="valid", activation='elu'))
         self.add(Conv2D(filters=64, kernel_size=4, strides=(2, 2), padding="valid", activation='elu'))
         self.add(Conv2D(filters=64, kernel_size=3, strides=(1, 1), padding="valid", activation='elu'))
         self.add(Flatten())
         self.add(Dense(units=512, activation='elu'))
-        self.add(Dense(units=256, activation='elu'))
         self.add(Dense(units=100, activation='elu'))
         self.add(Dense(units=50, activation='elu'))
