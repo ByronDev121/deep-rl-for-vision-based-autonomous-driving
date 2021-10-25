@@ -1,5 +1,5 @@
 algorithm: ddqn
-model_type: NvidiaCNN
+model_type: CustomCNN
 double_deep: true
 with_per: false
 with_hrs: false

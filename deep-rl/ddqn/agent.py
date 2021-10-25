@@ -3,6 +3,7 @@ import keras.backend as K
 from keras.optimizers import Adam
 from .model import Model
 
+
 class Agent:
     """ Agent Class (Network) for ddqn
     """
@@ -16,11 +17,11 @@ class Agent:
 
         # Initialize Deep Q-Network
         self.model = self.build_network()
-        self.model.compile(Adam(lr), 'mse')
+        self.model.compile(optimizer=Adam(lr), loss='mse')
 
         # Build target Q-Network
         self.target_model = self.build_network()
-        self.target_model.compile(Adam(lr), 'mse')
+        self.target_model.compile(optimizer=Adam(lr), loss='mse')
         self.target_model.set_weights(self.model.get_weights())
 
         self.graph = tf.get_default_graph()

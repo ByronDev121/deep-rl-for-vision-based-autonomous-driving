@@ -1,8 +1,7 @@
 import random
 import numpy as np
 import time
-import sys
-
+import tensorflow as tf
 from os.path import dirname, abspath, join
 from tqdm import tqdm
 from threading import Thread
@@ -11,13 +10,8 @@ from random import random, randrange
 from configparser import ConfigParser
 
 from .agent import Agent
-from utils.memory_buffer import MemoryBuffer
-from utils.networks import tf_summary
-from utils.image_processing import ImageProcessing
-
-sys.path.append('..')
-config = ConfigParser()
-config.read(join(dirname(dirname(abspath(__file__))), 'config.ini'))
+from .memory_buffer import MemoryBuffer
+from Masters.utils.image_processing import ImageProcessing
 
 
 class DDQN:
@@ -31,17 +25,20 @@ class DDQN:
         # Environment and ddqn parameters
         self.model_type = args.model_type
         self.double_deep = args.double_deep
-        self.with_per = args.with_per
         self.with_hrs = args.with_hrs
         self.augment = args.augment
         #
+
+        config = ConfigParser()
+        config.read(join(dirname(abspath(__file__)), '..', '..', 'airsim_gym', 'config.ini'))
+
         state_height = int(config['car_agent']['state_height'])
         state_width = int(config['car_agent']['state_width'])
         consecutive_frames = int(config['car_agent']['consecutive_frames'])
         act_dim = int(config['car_agent']['act_dim'])
         max_steering_angle = float(config['car_agent']['max_steering_angle'])
         self.fps = int(config['car_agent']['fps'])
-        self.state_dim = (consecutive_frames, state_height, state_width)
+        self.state_dim = (state_height, state_width, consecutive_frames)
         self.act_dim = act_dim
         #
         self.lr = args.lr
@@ -62,7 +59,7 @@ class DDQN:
         # Create q-network
         self.agent = Agent(self.model_type, self.state_dim, self.act_dim, self.lr, self.tau, args.dueling)
         # Memory Buffer for Experience Replay
-        self.buffer = MemoryBuffer(self.replay_buffer_size, args.with_per)
+        self.buffer = MemoryBuffer(self.replay_buffer_size)
         #
         self.processing = ImageProcessing(self.state_dim[1], self.state_dim[2], self.state_dim[0], act_dim,
                                           max_steering_angle)
@@ -72,6 +69,12 @@ class DDQN:
         self.training_initialized = False
         self.terminate = False
         self.avg_fps = 0
+
+    @staticmethod
+    def tf_summary(tag, val):
+        """ Scalar Value Tensorflow Summary
+        """
+        return tf.Summary(value=[tf.Summary.Value(tag=tag, simple_value=val)])
 
     def train(self, env, summary_writer):
         """ Main ddqn Training Algorithm
@@ -124,19 +127,19 @@ class DDQN:
                         time.sleep(0.01)
 
                 step_time = time.time() - step_start_time
-                if step_time < (1/self.fps):
-                    time.sleep((1/self.fps) - step_time)
+                if step_time < (1 / self.fps):
+                    time.sleep((1 / self.fps) - step_time)
 
             if cumul_reward > self.best_episode_reward:
                 self.best_episode_reward = cumul_reward
                 self.save_weights('{}/best_model/best_model'.format(self.save_dir))
 
             # Export results for Tensorboard
-            score = tf_summary('reward', cumul_reward)
-            avg_score = tf_summary('average-reward-per-step', cumul_reward / episode_steps)
-            qs = tf_summary('q-value', episode_qs)
-            avg_qs = tf_summary('average-q-per-step', episode_qs / episode_steps)
-            eps = tf_summary('epsilon', self.epsilon)
+            score = self.tf_summary('reward', cumul_reward)
+            avg_score = self.tf_summary('average-reward-per-step', cumul_reward / episode_steps)
+            qs = self.tf_summary('q-value', episode_qs)
+            avg_qs = self.tf_summary('average-q-per-step', episode_qs / episode_steps)
+            eps = self.tf_summary('epsilon', self.epsilon)
             summary_writer.add_summary(score, global_step=e)
             summary_writer.add_summary(avg_score, global_step=e)
             summary_writer.add_summary(qs, global_step=e)
@@ -195,15 +198,7 @@ class DDQN:
     def _memorize(self, state, action, reward, done, new_state):
         """ Store experience in memory buffer
         """
-        if self.with_per:
-            q_val = self.agent.predict(state)
-            q_val_t = self.agent.target_predict(new_state)
-            next_best_action = np.argmax(q_val)
-            new_val = reward + self.gamma * q_val_t[0, next_best_action]
-            td_error = abs(new_val - q_val)[0]
-        else:
-            td_error = 0
-        self.buffer.memorize(state, action, reward, done, new_state, td_error)
+        self.buffer.memorize(state, action, reward, done, new_state)
 
     def _train_in_loop(self):
         # first fit is slow:
@@ -239,7 +234,7 @@ class DDQN:
     def _train_agent(self):
         """ Train Q-network on batch sampled from the buffer
         """
-        # Sample experience from memory buffer (optionally with PER)
+        # Sample experience from memory buffer
         s, a, r, d, new_s, idx = self.buffer.sample_batch(self.batch_size)
 
         # Apply Bellman Equation on batch samples to train our ddqn
@@ -261,9 +256,7 @@ class DDQN:
                 else:
                     # print("deep q networks")
                     q[i, a[i]] = r[i] + self.gamma * np.max(q_targ[i])
-            if self.with_per:
-                # Update PER Sum Tree
-                self.buffer.update(idx[i], abs(old_q - q[i, a[i]]))
+
 
         # Train on batch
         self.agent.fit(s, q)

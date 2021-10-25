@@ -1,0 +1,9 @@
+epochs: 100
+samples_per_epoch: 100
+batch_size: 64
+load_weights: false
+model_type: NvidiaCNN
+pre_trained_model_path: ''
+model_name: ''
+data_path: H:\Masters\AirSim\AirSim_Source\PythonClient\training_data\discrete_data_set_track2
+render: false

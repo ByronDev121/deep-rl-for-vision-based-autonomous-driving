@@ -10,8 +10,8 @@ from ddqn.ddqn import DDQN
 from a2c.a2c import A2C_
 from ppo.ppo import PPO_2
 
-from airsim_gym.gym import AirSimCarEnv
-from utils.path import get_export_path
+from Masters.airsim_gym.gym import AirSimCarEnv
+from Masters.utils.path import get_export_path
 
 
 def parse_args(args):
@@ -20,17 +20,14 @@ def parse_args(args):
     """
     parser = argparse.ArgumentParser(description='Training parameters')
     #
-    parser.add_argument('--algorithm', type=str, default='ppo',
+    parser.add_argument('--algorithm', type=str, default='ddqn',
                         help="Algorithm to train {ddqn, a2c, ppo}")
     #
-    parser.add_argument('--model_type', type=str, default='CustomCNN',
+    parser.add_argument('--model_type', type=str, default='NatureCNN',
                         help="Policy model to train {ddqn}")
     #
     parser.add_argument('--double_deep', type=bool, default=True,
                         help="Use Double Deep DQN {ddqn}")
-    #
-    parser.add_argument('--with_per', type=bool, default=False,
-                        help="Use Prioritized Experience Replay (ddqn + PER)")
     #
     parser.add_argument('--with_hrs', type=bool, default=False,
                         help="Use Hindsight Reward Shaping (ddqn + HRS)")
@@ -74,9 +71,6 @@ def parse_args(args):
     parser.add_argument('--replay_start_size', type=int, default=2500,
                         help="Reply buffer size")
     #
-    parser.add_argument('--augment', type=bool, default=False,
-                        help="Augment data with noise before adding to replay bugger")
-    #
     parser.add_argument('--track', type=str, default='basic_training_track',
                         help="AirSim Track")
     return parser.parse_args(args)
@@ -95,12 +89,7 @@ def keras_session_init(save_dir):
 def instantiate_environment(args):
     """ Instantiate AirSim Gym Environment using parameters set in arguments from command line input
     """
-    if args.algorithm == "ddqn":
-        stack_axis = 0
-
-    else:
-        stack_axis = 2
-    env = AirSimCarEnv(stack_axis)
+    env = AirSimCarEnv()
     env.reset()
     return env
 

@@ -41,7 +41,7 @@ class Model (Sequential):
 
     # The same model that was described by Mnih et al. (2015).
     def build_nature_cnn(self):
-        self.add(Permute(dims=(2, 3, 1), input_shape=self.state_dim))
+        self.add(Permute(dims=(1, 2, 3), input_shape=self.state_dim))
         self.add(Conv2D(filters=32, kernel_size=8, strides=(4, 4), activation='relu'))
         self.add(Conv2D(filters=64, kernel_size=4, strides=(2, 2), activation='relu'))
         self.add(Conv2D(filters=64, kernel_size=3, strides=(1, 1), activation='relu'))
@@ -50,7 +50,7 @@ class Model (Sequential):
 
     # The same model that was described by Bojarski, Mariusz, et al. (2016)
     def build_nvidia_cnn(self):
-        self.add(Permute(dims=(2, 3, 1), input_shape=self.state_dim))
+        self.add(Permute(dims=(1, 2, 3), input_shape=self.state_dim))
         self.add(Conv2D(24, 5, 5, activation='elu', subsample=(2, 2)))
         self.add(Conv2D(36, 5, 5, activation='elu', subsample=(2, 2)))
         self.add(Conv2D(48, 5, 5, activation='elu', subsample=(2, 2)))
@@ -62,7 +62,7 @@ class Model (Sequential):
         self.add(Dense(50, activation='elu'))
 
     def build_custom_cnn(self):
-        self.add(Permute(dims=(2, 3, 1), input_shape=self.state_dim))
+        self.add(Permute(dims=(1, 2, 3), input_shape=self.state_dim))
         self.add(Conv2D(filters=32, kernel_size=8, strides=(4, 4), padding="valid", activation='elu'))
         self.add(Conv2D(filters=64, kernel_size=4, strides=(2, 2), padding="valid", activation='elu'))
         self.add(Conv2D(filters=64, kernel_size=3, strides=(1, 1), padding="valid", activation='elu'))
