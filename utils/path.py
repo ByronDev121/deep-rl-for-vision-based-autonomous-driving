@@ -21,9 +21,17 @@ def get_export_path(args):
 
 
 def get_model_name(args):
-    return 'results/{}'.format(
-        args.model_type
-    )
+    if hasattr(args, "algorithm"):
+        return 'results/{}/{}/{}'.format(
+            args.experiment_name,
+            args.algorithm,
+            args.model_type,
+        )
+    else:
+        return 'results/{}/{}'.format(
+            args.experiment_name,
+            args.model_type,
+        )
 
 
 def increment_path(path, sep=''):

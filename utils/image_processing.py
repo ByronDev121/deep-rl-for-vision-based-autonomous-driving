@@ -12,19 +12,11 @@ class ImageProcessing:
     @param: image_channels  - Number of channels to stack frames
     """
 
-    def __init__(self, image_height, image_width, image_channels, act_dim, max_steering_angle):
+    def __init__(self, image_height, image_width, image_channels):
         self.stacked_frames = None
         self.image_width = image_width
         self.image_height = image_height
         self.channels = image_channels
-        self.act_dim = act_dim
-        self.steering_values = np.arange(
-            -max_steering_angle,
-            max_steering_angle,
-            2 * max_steering_angle / (act_dim - 1)
-        ).tolist()
-        self.steering_values.append(max_steering_angle)
-        self.steering_values = [round(num, 3) for num in self.steering_values]
 
     def preprocess(self, image, is_new_episode):
         """
@@ -43,14 +35,16 @@ class ImageProcessing:
         """
         Convert image from rgb image to grayscale image
         """
-        return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        return cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+
+        # return cv2.Canny(image, 100, 300)
 
     @staticmethod
     def _crop(image):
         """
         Crop the image (removing the sky at the top and the car front at the bottom)
         """
-        return image[54:144, :] / 255
+        return image[54:144, :]
 
     def _resize(self, image):
         """

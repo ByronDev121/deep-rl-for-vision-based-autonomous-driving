@@ -1,0 +1,13 @@
+lr_range_test: false
+epochs: 100
+samples_per_epoch: 100
+lr: 9.0e-05
+batch_size: 128
+load_weights: false
+track: Track_Two
+model_type: NatureCNN
+output_activation: linear
+loss: mean_squared_error
+pre_trained_model_path: ''
+data_path: H:\Masters\AirSim\AirSim_Source\PythonClient\training_data\\continuous_data_set_track2
+render: false

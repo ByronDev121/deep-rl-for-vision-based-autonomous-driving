@@ -1,5 +1,4 @@
 import math
-from abc import ABC
 from os.path import dirname, abspath, join
 import numpy as np
 from configparser import ConfigParser
@@ -35,8 +34,8 @@ class AirSimCarEnv(gym.Env):
 
         # Using discrete actions
         act_dim = int(config['car_agent']['act_dim'])
-        self.action_space = gym.spaces.Discrete(act_dim)
-        # self.action_space = gym.spaces.Box(np.array([-1]), np.array([+1]))
+        # self.action_space = gym.spaces.Discrete(act_dim)
+        self.action_space = gym.spaces.Box(np.array([-0.3]), np.array([+0.3]))
 
         # Using image as input)
         image_shape = (state_height, state_width, consecutive_frames)
@@ -56,8 +55,10 @@ class AirSimCarEnv(gym.Env):
         # get observation
         observation = self.car_agent.observe(False)
         # compute reward
-        reward = 0
-        # reward = self._compute_reward()
+        # reward = 0
+        reward = self._compute_reward()
+        if reward is None:
+            return observation, 0, True, info
         # check if done
         collision_info = self.car_agent.simGetCollisionInfo()
         done = False
@@ -66,7 +67,6 @@ class AirSimCarEnv(gym.Env):
             reward = -5
         if self.number_of_steps == self.episode_step_limit:
             done = True
-            reward = 5
         return observation, reward, done, info
 
     def reset(self):
@@ -84,6 +84,14 @@ class AirSimCarEnv(gym.Env):
         thresh_dist = 5
         reward = 1
         nearest_way_point_dist, track_center_dist, car_angle, kmh = self.car_agent.sim_get_vehicle_state()
+
+        if (
+                nearest_way_point_dist is None or
+                track_center_dist is None or
+                car_angle is None or
+                kmh is None
+        ):
+            return None
 
         if self.step_reward:
             reward += self._steps_reward(self.number_of_steps, self.episode_step_limit)
@@ -104,7 +112,7 @@ class AirSimCarEnv(gym.Env):
 
     @staticmethod
     def _steps_reward(steps, total_steps):
-        return steps/total_steps
+        return steps / total_steps
 
     @staticmethod
     def _speed_reward(max_speed, kmh):
@@ -140,21 +148,21 @@ class AirSimCarEnv(gym.Env):
             "Nearest Way Point Dist: {} \n "
             "Track Center Dist: {} \n "
             "Car angle: {} \n "
-            .format(
+                .format(
                 kmh,
                 nearest_way_point_dist,
                 track_center_dist,
                 car_angle))
 
-        print(
-            "Speed Reward: {} \n"
-            "Nearest Way Point Reward: {} \n"
-            "Track Center Reward: {} \n"
-            "Car angle reward: {} \n"
-            .format(
-                1 - AirSimCarEnv._speed_reward(1, max_speed, kmh) if self.speed_reward else 0,
-                1 - AirSimCarEnv._nearest_way_point_reward(nearest_way_point_dist, thresh_dist) if self.nearest_way_point_reward else 0,
-                1 - AirSimCarEnv._center_of_track_reward(reward, track_center_dist) if self.center_of_track_reward else 0,
-                1 - AirSimCarEnv._car_angle_reward(reward, car_angle) if self.car_angle_reward else 0))
+        # print(
+        #     "Speed Reward: {} \n"
+        #     "Nearest Way Point Reward: {} \n"
+        #     "Track Center Reward: {} \n"
+        #     "Car angle reward: {} \n"
+        #     .format(
+        #         1 - AirSimCarEnv._speed_reward(1, max_speed, kmh) if self.speed_reward else 0,
+        #         1 - AirSimCarEnv._nearest_way_point_reward(nearest_way_point_dist, thresh_dist) if self.nearest_way_point_reward else 0,
+        #         1 - AirSimCarEnv._center_of_track_reward(reward, track_center_dist) if self.center_of_track_reward else 0,
+        #         1 - AirSimCarEnv._car_angle_reward(reward, car_angle) if self.car_angle_reward else 0))
 
         print(' \n Total Reward: {}'.format(reward))
