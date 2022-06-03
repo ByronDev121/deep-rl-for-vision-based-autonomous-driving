@@ -1,0 +1,319 @@
+Date : 2022-06-03 20:53:00
+Directory : h:\Masters\Masters
+Total : 223 files,  36472 codes, 444 comments, 639 blanks, all 37555 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| JSON     |        118 |     32,639 |          0 |          0 |     32,639 |
+| Python   |         27 |      1,907 |        437 |        560 |      2,904 |
+| YAML     |         72 |      1,546 |          0 |         72 |      1,618 |
+| XML      |          5 |        333 |          0 |          0 |        333 |
+| Ini      |          1 |         47 |          7 |          7 |         61 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                         |        223 |     36,472 |        444 |        639 |     37,555 |
+| .idea                                                                                                                                     |          5 |        333 |          0 |          0 |        333 |
+| .idea\inspectionProfiles                                                                                                                  |          1 |          6 |          0 |          0 |          6 |
+| airsim_gym                                                                                                                                |          3 |        325 |         46 |         83 |        454 |
+| deep_rl                                                                                                                                   |         95 |     16,727 |        143 |        174 |     17,044 |
+| deep_rl\a2c                                                                                                                               |          2 |         32 |          2 |         12 |         46 |
+| deep_rl\ddqn                                                                                                                              |          3 |        301 |         74 |         69 |        444 |
+| deep_rl\ppo                                                                                                                               |          2 |         33 |          2 |         14 |         49 |
+| deep_rl\results                                                                                                                           |         86 |     16,215 |          0 |         32 |     16,247 |
+| deep_rl\results\agent-model-structure-study                                                                                               |         14 |        149 |          0 |          6 |        155 |
+| deep_rl\results\agent-model-structure-study\ddqn                                                                                          |         14 |        149 |          0 |          6 |        155 |
+| deep_rl\results\agent-model-structure-study\ddqn\CustomCNN                                                                                |          6 |         47 |          0 |          2 |         49 |
+| deep_rl\results\agent-model-structure-study\ddqn\NatureCNN5                                                                               |          4 |         51 |          0 |          2 |         53 |
+| deep_rl\results\agent-model-structure-study\ddqn\NvidiaCNN2                                                                               |          4 |         51 |          0 |          2 |         53 |
+| deep_rl\results\multiple-spawn-location-study                                                                                             |         12 |         92 |          0 |          4 |         96 |
+| deep_rl\results\multiple-spawn-location-study\ddqn                                                                                        |          6 |         46 |          0 |          2 |         48 |
+| deep_rl\results\multiple-spawn-location-study\ddqn2                                                                                       |          6 |         46 |          0 |          2 |         48 |
+| deep_rl\results\reward-function-ablation-study                                                                                            |         36 |        275 |          0 |         12 |        287 |
+| deep_rl\results\reward-function-ablation-study\ddqn                                                                                       |          6 |         45 |          0 |          2 |         47 |
+| deep_rl\results\reward-function-ablation-study\ddqn2                                                                                      |          6 |         46 |          0 |          2 |         48 |
+| deep_rl\results\reward-function-ablation-study\ddqn3                                                                                      |          6 |         46 |          0 |          2 |         48 |
+| deep_rl\results\reward-function-ablation-study\ddqn4                                                                                      |          6 |         46 |          0 |          2 |         48 |
+| deep_rl\results\reward-function-ablation-study\ddqn5                                                                                      |          6 |         46 |          0 |          2 |         48 |
+| deep_rl\results\reward-function-ablation-study\ddqn6                                                                                      |          6 |         46 |          0 |          2 |         48 |
+| deep_rl\results\state-of-the-art-study                                                                                                    |         24 |     15,699 |          0 |         10 |     15,709 |
+| deep_rl\results\state-of-the-art-study\a2c                                                                                                |          8 |        101 |          0 |          4 |        105 |
+| deep_rl\results\state-of-the-art-study\a2c\continuous                                                                                     |          4 |         51 |          0 |          2 |         53 |
+| deep_rl\results\state-of-the-art-study\a2c\continuous\NatureCNN6                                                                          |          4 |         51 |          0 |          2 |         53 |
+| deep_rl\results\state-of-the-art-study\a2c\discrete                                                                                       |          4 |         50 |          0 |          2 |         52 |
+| deep_rl\results\state-of-the-art-study\ddqn                                                                                               |          6 |     15,495 |          0 |          2 |     15,497 |
+| deep_rl\results\state-of-the-art-study\ppo                                                                                                |         10 |        103 |          0 |          4 |        107 |
+| deep_rl\results\state-of-the-art-study\ppo\continuous                                                                                     |          6 |         53 |          0 |          2 |         55 |
+| deep_rl\results\state-of-the-art-study\ppo\continuous\NatureCNN3                                                                          |          6 |         53 |          0 |          2 |         55 |
+| deep_rl\results\state-of-the-art-study\ppo\discrete                                                                                       |          4 |         50 |          0 |          2 |         52 |
+| deep_sl                                                                                                                                   |        111 |     18,617 |        171 |        253 |     19,041 |
+| deep_sl\results                                                                                                                           |        104 |     17,970 |          0 |         40 |     18,010 |
+| deep_sl\results\augmentation_ablation_study                                                                                               |         56 |        554 |          0 |         26 |        580 |
+| deep_sl\results\augmentation_ablation_study\continuous                                                                                    |         18 |        264 |          0 |         12 |        276 |
+| deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN                                                                          |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN2                                                                         |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN3                                                                         |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN4                                                                         |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN5                                                                         |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN6                                                                         |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\augmentation_ablation_study\discrete                                                                                      |         38 |        290 |          0 |         14 |        304 |
+| deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN                                                                            |          6 |         42 |          0 |          2 |         44 |
+| deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN2                                                                           |          6 |         42 |          0 |          2 |         44 |
+| deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN3                                                                           |          6 |         42 |          0 |          2 |         44 |
+| deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN4                                                                           |          6 |         42 |          0 |          2 |         44 |
+| deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN5                                                                           |          6 |         42 |          0 |          2 |         44 |
+| deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN6                                                                           |          6 |         42 |          0 |          2 |         44 |
+| deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN_all                                                                        |          2 |         38 |          0 |          2 |         40 |
+| deep_sl\results\network_architecture_study                                                                                                |         48 |     17,416 |          0 |         14 |     17,430 |
+| deep_sl\results\network_architecture_study\continuous                                                                                     |         21 |      9,674 |          0 |          8 |      9,682 |
+| deep_sl\results\network_architecture_study\continuous\CustomCNN                                                                           |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\network_architecture_study\continuous\CustomCNN2                                                                          |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\network_architecture_study\continuous\LR-Range-Test-CustomCNN                                                             |          3 |      3,470 |          0 |          0 |      3,470 |
+| deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NatureCNN                                                             |          3 |      2,542 |          0 |          0 |      2,542 |
+| deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NvidiaCNN                                                             |          3 |      3,486 |          0 |          0 |      3,486 |
+| deep_sl\results\network_architecture_study\continuous\NatureCNN                                                                           |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\network_architecture_study\continuous\NvidiaCNN                                                                           |          3 |         44 |          0 |          2 |         46 |
+| deep_sl\results\network_architecture_study\discrete                                                                                       |         27 |      7,742 |          0 |          6 |      7,748 |
+| deep_sl\results\network_architecture_study\discrete\CustomCNN                                                                             |          6 |         48 |          0 |          2 |         50 |
+| deep_sl\results\network_architecture_study\discrete\LR-Range-Test-CustomCNN                                                               |          3 |      2,386 |          0 |          0 |      2,386 |
+| deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NatureCNN                                                               |          3 |      2,770 |          0 |          0 |      2,770 |
+| deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NvidiaCNN                                                               |          3 |      2,442 |          0 |          0 |      2,442 |
+| deep_sl\results\network_architecture_study\discrete\NatureCNN                                                                             |          6 |         48 |          0 |          2 |         50 |
+| deep_sl\results\network_architecture_study\discrete\NvidiaCNN                                                                             |          6 |         48 |          0 |          2 |         50 |
+| utils                                                                                                                                     |          8 |        469 |         84 |        128 |        681 |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                                  | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| h:\Masters\Masters\.idea\Masters.iml                                                                                                      | XML      |         12 |          0 |          0 |         12 |
+| h:\Masters\Masters\.idea\inspectionProfiles\profiles_settings.xml                                                                         | XML      |          6 |          0 |          0 |          6 |
+| h:\Masters\Masters\.idea\misc.xml                                                                                                         | XML      |          7 |          0 |          0 |          7 |
+| h:\Masters\Masters\.idea\modules.xml                                                                                                      | XML      |          8 |          0 |          0 |          8 |
+| h:\Masters\Masters\.idea\workspace.xml                                                                                                    | XML      |        300 |          0 |          0 |        300 |
+| h:\Masters\Masters\__init__.py                                                                                                            | Python   |          1 |          0 |          1 |          2 |
+| h:\Masters\Masters\airsim_gym\car_agent.py                                                                                                | Python   |        161 |         16 |         47 |        224 |
+| h:\Masters\Masters\airsim_gym\config.ini                                                                                                  | Ini      |         47 |          7 |          7 |         61 |
+| h:\Masters\Masters\airsim_gym\gym.py                                                                                                      | Python   |        117 |         23 |         29 |        169 |
+| h:\Masters\Masters\deep_rl\a2c\__init__.py                                                                                                | Python   |          0 |          0 |          1 |          1 |
+| h:\Masters\Masters\deep_rl\a2c\a2c.py                                                                                                     | Python   |         32 |          2 |         11 |         45 |
+| h:\Masters\Masters\deep_rl\ddqn\agent.py                                                                                                  | Python   |         41 |         14 |         15 |         70 |
+| h:\Masters\Masters\deep_rl\ddqn\ddqn.py                                                                                                   | Python   |        225 |         43 |         40 |        308 |
+| h:\Masters\Masters\deep_rl\ddqn\memory_buffer.py                                                                                          | Python   |         35 |         17 |         14 |         66 |
+| h:\Masters\Masters\deep_rl\load_and_run.py                                                                                                | Python   |         68 |         27 |         25 |        120 |
+| h:\Masters\Masters\deep_rl\main.py                                                                                                        | Python   |         78 |         38 |         22 |        138 |
+| h:\Masters\Masters\deep_rl\ppo\__init__.py                                                                                                | Python   |          0 |          0 |          1 |          1 |
+| h:\Masters\Masters\deep_rl\ppo\ppo.py                                                                                                     | Python   |         33 |          2 |         13 |         48 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\CustomCNN\average-q-per-episode.json                                  | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\CustomCNN\average-q-per-step.json                                     | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\CustomCNN\average-reward-per-episode.json                             | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\CustomCNN\average-reward-per-step.json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\CustomCNN\hyp.yaml                                                    | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\CustomCNN\opt.yaml                                                    | YAML     |         23 |          0 |          1 |         24 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NatureCNN5\average-q-per-step.json                                    | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NatureCNN5\average-reward-per-episode.json                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NatureCNN5\hyp.yaml                                                   | YAML     |         19 |          0 |          1 |         20 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NatureCNN5\opt.yaml                                                   | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NvidiaCNN2\average-q-per-step.json                                    | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NvidiaCNN2\average-reward-per-episode.json                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NvidiaCNN2\hyp.yaml                                                   | YAML     |         19 |          0 |          1 |         20 |
+| h:\Masters\Masters\deep_rl\results\agent-model-structure-study\ddqn\NvidiaCNN2\opt.yaml                                                   | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn2\average-q-per-episode.json                                         | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn2\average-q-per-step.json                                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn2\average-reward-per-episode.json                                    | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn2\average-reward-per-step.json                                       | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn2\hyp.yaml                                                           | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn2\opt.yaml                                                           | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn\average-q-per-episode.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn\average-q-per-step.json                                             | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn\average-reward-per-episode.json                                     | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn\average-reward-per-step.json                                        | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn\hyp.yaml                                                            | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\multiple-spawn-location-study\ddqn\opt.yaml                                                            | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn2\average-q-per-episode.json                                        | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn2\average-q-per-step.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn2\average-reward-per-episode.json                                   | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn2\average-reward-per-step.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn2\hyp.yaml                                                          | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn2\opt.yaml                                                          | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn3\average-q-per-episode.json                                        | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn3\average-q-per-step.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn3\average-reward-per-episode.json                                   | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn3\average-reward-per-step.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn3\hyp.yaml                                                          | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn3\opt.yaml                                                          | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn4\average-q-per-episode.json                                        | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn4\average-q-per-step.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn4\average-reward-per-episode.json                                   | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn4\average-reward-per-step.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn4\hyp.yaml                                                          | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn4\opt.yaml                                                          | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn5\average-q-per-episode.json                                        | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn5\average-q-per-step.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn5\average-reward-per-episode.json                                   | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn5\average-reward-per-step.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn5\hyp.yaml                                                          | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn5\opt.yaml                                                          | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn6\average-q-per-episode.json                                        | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn6\average-q-per-step.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn6\average-reward-per-episode.json                                   | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn6\average-reward-per-step.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn6\hyp.yaml                                                          | YAML     |         20 |          0 |          1 |         21 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn6\opt.yaml                                                          | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn\average-q-per-episode.json                                         | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn\average-q-per-step.json                                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn\average-reward-per-episode.json                                    | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn\average-reward-per-step.json                                       | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn\hyp.yaml                                                           | YAML     |         19 |          0 |          1 |         20 |
+| h:\Masters\Masters\deep_rl\results\reward-function-ablation-study\ddqn\opt.yaml                                                           | YAML     |         22 |          0 |          1 |         23 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\continuous\NatureCNN6\discounted_rewards.json                               | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\continuous\NatureCNN6\episode_rewards.json                                  | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\continuous\NatureCNN6\hyp.yaml                                              | YAML     |         19 |          0 |          1 |         20 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\continuous\NatureCNN6\opt.yaml                                              | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\discrete\avg-q-value-per-step.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\discrete\episode-rewards.json                                               | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\discrete\hyp.yaml                                                           | YAML     |         18 |          0 |          1 |         19 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\a2c\discrete\opt.yaml                                                           | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ddqn\avg-q-value-per-step.json                                                  | JSON     |      5,212 |          0 |          0 |      5,212 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ddqn\avg-q-value-per-step_old.json                                              | JSON     |      5,002 |          0 |          0 |      5,002 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ddqn\episode-rewards.json                                                       | JSON     |      5,232 |          0 |          0 |      5,232 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ddqn\episode-rewards_old.json                                                   | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ddqn\hyp.yaml                                                                   | YAML     |         18 |          0 |          1 |         19 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ddqn\opt.yaml                                                                   | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\continuous\NatureCNN3\discounted_rewards.json                               | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\continuous\NatureCNN3\episode_rewards.json                                  | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\continuous\NatureCNN3\hyp.yaml                                              | YAML     |         19 |          0 |          1 |         20 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\continuous\NatureCNN3\opt.yaml                                              | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\continuous\NatureCNN3\run-PPO2_1-tag-episode_reward (1).json                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\continuous\NatureCNN3\run-PPO2_1-tag-input_info_discounted_rewards (2).json | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\discrete\avg-q-value-per-step.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\discrete\episode-rewards.json                                               | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\discrete\hyp.yaml                                                           | YAML     |         18 |          0 |          1 |         19 |
+| h:\Masters\Masters\deep_rl\results\state-of-the-art-study\ppo\discrete\opt.yaml                                                           | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\batch_generator.py                                                                                             | Python   |         76 |         17 |         20 |        113 |
+| h:\Masters\Masters\deep_sl\cnn.py                                                                                                         | Python   |         98 |         23 |         30 |        151 |
+| h:\Masters\Masters\deep_sl\data_manipulation.py                                                                                           | Python   |         37 |          3 |         11 |         51 |
+| h:\Masters\Masters\deep_sl\load_and_run.py                                                                                                | Python   |         96 |         68 |         40 |        204 |
+| h:\Masters\Masters\deep_sl\main.py                                                                                                        | Python   |         77 |         21 |         24 |        122 |
+| h:\Masters\Masters\deep_sl\remote_control.py                                                                                              | Python   |         47 |          6 |         15 |         68 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN2\hyp.yaml                                             | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN2\mean_squared_error.json                              | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN2\opt.yaml                                             | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN3\hyp.yaml                                             | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN3\mean_squared_error.json                              | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN3\opt.yaml                                             | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN4\hyp.yaml                                             | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN4\mean_squared_error.json                              | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN4\opt.yaml                                             | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN5\hyp.yaml                                             | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN5\mean_squared_error.json                              | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN5\opt.yaml                                             | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN6\hyp.yaml                                             | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN6\mean_squared_error.json                              | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN6\opt.yaml                                             | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN\hyp.yaml                                              | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN\mean_squared_error.json                               | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\continuous\NvidiaCNN\opt.yaml                                              | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN2\hyp.yaml                                               | YAML     |          9 |          0 |          1 |         10 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN2\opt.yaml                                               | YAML     |         29 |          0 |          1 |         30 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN2\run-.-tag-acc (1).json                                 | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN2\run-.-tag-loss (1).json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN2\val_acc.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN2\val_loss.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN3\hyp.yaml                                               | YAML     |          9 |          0 |          1 |         10 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN3\opt.yaml                                               | YAML     |         29 |          0 |          1 |         30 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN3\run-.-tag-acc (1).json                                 | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN3\run-.-tag-loss (1).json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN3\val_acc.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN3\val_loss.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN4\hyp.yaml                                               | YAML     |          9 |          0 |          1 |         10 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN4\opt.yaml                                               | YAML     |         29 |          0 |          1 |         30 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN4\run-.-tag-acc (1).json                                 | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN4\run-.-tag-loss (1).json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN4\val_acc.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN4\val_loss.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN5\hyp.yaml                                               | YAML     |          9 |          0 |          1 |         10 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN5\opt.yaml                                               | YAML     |         29 |          0 |          1 |         30 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN5\run-.-tag-acc (1).json                                 | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN5\run-.-tag-loss (1).json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN5\val_acc.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN5\val_loss.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN6\hyp.yaml                                               | YAML     |          9 |          0 |          1 |         10 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN6\opt.yaml                                               | YAML     |         29 |          0 |          1 |         30 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN6\run-.-tag-acc (1).json                                 | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN6\run-.-tag-loss (1).json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN6\val_acc.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN6\val_loss.json                                          | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN\hyp.yaml                                                | YAML     |          9 |          0 |          1 |         10 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN\opt.yaml                                                | YAML     |         29 |          0 |          1 |         30 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN\run-.-tag-acc (1).json                                  | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN\run-.-tag-loss (1).json                                 | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN\val_acc.json                                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN\val_loss.json                                           | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN_all\hyp.yaml                                            | YAML     |          9 |          0 |          1 |         10 |
+| h:\Masters\Masters\deep_sl\results\augmentation_ablation_study\discrete\NvidiaCNN_all\opt.yaml                                            | YAML     |         29 |          0 |          1 |         30 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\CustomCNN2\hyp.yaml                                              | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\CustomCNN2\mean_squared_error.json                               | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\CustomCNN2\opt.yaml                                              | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\CustomCNN\hyp.yaml                                               | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\CustomCNN\mean_squared_error.json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\CustomCNN\opt.yaml                                               | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-CustomCNN\data_128.json                            | JSON     |      1,514 |          0 |          0 |      1,514 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-CustomCNN\data_32.json                             | JSON     |        874 |          0 |          0 |        874 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-CustomCNN\data_64.json                             | JSON     |      1,082 |          0 |          0 |      1,082 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NatureCNN\data_128.json                            | JSON     |      1,398 |          0 |          0 |      1,398 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NatureCNN\data_32.json                             | JSON     |        358 |          0 |          0 |        358 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NatureCNN\data_64.json                             | JSON     |        786 |          0 |          0 |        786 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NvidiaCNN\data_128.json                            | JSON     |      1,574 |          0 |          0 |      1,574 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NvidiaCNN\data_32.json                             | JSON     |        742 |          0 |          0 |        742 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\LR-Range-Test-NvidiaCNN\data_64.json                             | JSON     |      1,170 |          0 |          0 |      1,170 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\NatureCNN\hyp.yaml                                               | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\NatureCNN\mean_squared_error.json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\NatureCNN\opt.yaml                                               | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\NvidiaCNN\hyp.yaml                                               | YAML     |         13 |          0 |          1 |         14 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\NvidiaCNN\mean_squared_error.json                                | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\continuous\NvidiaCNN\opt.yaml                                               | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\CustomCNN\hyp.yaml                                                 | YAML     |         14 |          0 |          1 |         15 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\CustomCNN\opt.yaml                                                 | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\CustomCNN\run-.-tag-acc.json                                       | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\CustomCNN\run-.-tag-loss.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\CustomCNN\val_acc.json                                             | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\CustomCNN\val_loss.json                                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-CustomCNN\data_128.json                              | JSON     |        750 |          0 |          0 |        750 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-CustomCNN\data_32.json                               | JSON     |        798 |          0 |          0 |        798 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-CustomCNN\data_64.json                               | JSON     |        838 |          0 |          0 |        838 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NatureCNN\data_128.json                              | JSON     |        978 |          0 |          0 |        978 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NatureCNN\data_32.json                               | JSON     |        898 |          0 |          0 |        898 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NatureCNN\data_64.json                               | JSON     |        894 |          0 |          0 |        894 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NvidiaCNN\data_128.json                              | JSON     |        794 |          0 |          0 |        794 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NvidiaCNN\data_32.json                               | JSON     |        802 |          0 |          0 |        802 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\LR-Range-Test-NvidiaCNN\data_64.json                               | JSON     |        846 |          0 |          0 |        846 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NatureCNN\hyp.yaml                                                 | YAML     |         14 |          0 |          1 |         15 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NatureCNN\opt.yaml                                                 | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NatureCNN\run-.-tag-acc.json                                       | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NatureCNN\run-.-tag-loss.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NatureCNN\val_acc.json                                             | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NatureCNN\val_loss.json                                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NvidiaCNN\hyp.yaml                                                 | YAML     |         14 |          0 |          1 |         15 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NvidiaCNN\opt.yaml                                                 | YAML     |         30 |          0 |          1 |         31 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NvidiaCNN\run-.-tag-acc.json                                       | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NvidiaCNN\run-.-tag-loss.json                                      | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NvidiaCNN\val_acc.json                                             | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\results\network_architecture_study\discrete\NvidiaCNN\val_loss.json                                            | JSON     |          1 |          0 |          0 |          1 |
+| h:\Masters\Masters\deep_sl\tf_main.py                                                                                                     | Python   |        216 |         33 |         73 |        322 |
+| h:\Masters\Masters\utils\__init__.py                                                                                                      | Python   |          0 |          0 |          1 |          1 |
+| h:\Masters\Masters\utils\augment.py                                                                                                       | Python   |         87 |         23 |         21 |        131 |
+| h:\Masters\Masters\utils\image_processing.py                                                                                              | Python   |         36 |         30 |         15 |         81 |
+| h:\Masters\Masters\utils\model.py                                                                                                         | Python   |         57 |          2 |         10 |         69 |
+| h:\Masters\Masters\utils\path.py                                                                                                          | Python   |         55 |          8 |         12 |         75 |
+| h:\Masters\Masters\utils\plot_rl_results.py                                                                                               | Python   |         84 |          7 |         22 |        113 |
+| h:\Masters\Masters\utils\plot_sl_lr_range_test_results.py                                                                                 | Python   |         76 |          4 |         26 |        106 |
+| h:\Masters\Masters\utils\plot_sl_results.py                                                                                               | Python   |         74 |         10 |         21 |        105 |
+| Total                                                                                                                                     |          |     36,472 |        444 |        639 |     37,555 |
++-------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
