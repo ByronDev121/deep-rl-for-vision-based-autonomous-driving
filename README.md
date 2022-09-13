@@ -31,7 +31,7 @@ A detailed research dissertation can be found [here](doc/Accelerating_Training_o
 
 ## Contributions
 --------------
-- We propose and implement an OpenAI Gym Specification Application Programming Interface (API) for AirSim\cite{shah2018airsim} in Python, to train and test vision-based DSL and DRL agents. This implementation allows for rapid reward function design to accelerate the training and testing of different reward strategies. We also design and implement three custom race track environments to train and test DSL and DRL agents. *While some third-party libraries exist, none are officially supported by OpenAI, and none are flexible enough to support rapid testing and development of both DSL and DRL models.
+- We propose and implement an OpenAI Gym Specification Application Programming Interface (API) for AirSim in Python, to train and test vision-based DSL and DRL agents. This implementation allows for rapid reward function design to accelerate the training and testing of different reward strategies. We also design and implement three custom race track environments to train and test DSL and DRL agents. *While some third-party libraries exist, none are officially supported by OpenAI, and none are flexible enough to support rapid testing and development of both DSL and DRL models.
   
 - We optimize a Deep Supervised Learning approach known as "Behavioral Cloning" for autonomous vehicle control through data augmentation, Neural Network structure design, and hyper-parameter tuning.
     
