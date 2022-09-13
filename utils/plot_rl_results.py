@@ -87,11 +87,6 @@ def main():
             x_name = "Episodes"
             y_name = key
             if key != x_name:
-                if el == 'ddqn\\NvidiaCNN2':
-                    for i, val in enumerate(logs_object[key]):
-                        index = logs_object[x_name][i]
-                        if index > 300:
-                            logs_object[key][i] = logs_object[key][i] + 150
                 plot_logs_data(logs_object[x_name], logs_object[key], ax)
 
     plt.legend(
