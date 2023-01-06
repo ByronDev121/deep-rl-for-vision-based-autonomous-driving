@@ -45,6 +45,7 @@ class CarAgent(CarClient):
         self.action_mode = int(config['car_agent']['action_mode'])
         self.fixed_throttle = float(config['car_agent']['fixed_throttle'])
         self.random_spawn = float(config['car_agent']['random_spawn'])
+        self.noise = int(config['car_agent']['noise'])
 
         if self.action_mode == 0:
             self.steering_values = self._set_steering_values(max_steering_angle, steering_granularity)
@@ -142,7 +143,17 @@ class CarAgent(CarClient):
 
     def move(self, action):
         car_controls = self._interpret_action(action)
+        print("No noise", car_controls.steering)
+        if self.noise:
+            car_controls = CarAgent.add_noise(car_controls)
+        print("With noise ", car_controls.steering)
         super().setCarControls(car_controls)
+
+    @staticmethod
+    def add_noise(car_controls):
+        noise = np.random.normal(0, .05)
+        car_controls.steering = car_controls.steering + noise
+        return car_controls
 
     def sim_get_vehicle_state(self):
         car_state = super().getCarState()
