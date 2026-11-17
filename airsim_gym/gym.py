@@ -32,10 +32,19 @@ class AirSimCarEnv(gym.Env):
         self.track_width = int(config['airsim_settings']['track_width'])
         self.episode_step_limit = int(config['airsim_settings']['episode_step_limit'])
 
-        # Using discrete actions
         act_dim = int(config['car_agent']['act_dim'])
-        # self.action_space = gym.spaces.Discrete(act_dim)
-        self.action_space = gym.spaces.Box(np.array([-0.3]), np.array([+0.3]))
+        action_mode = int(config['car_agent']['action_mode'])
+        if action_mode == 0:
+            self.action_space = gym.spaces.Discrete(act_dim)
+        elif action_mode == 1:
+            max_steering_angle = float(config['car_agent']['max_steering_angle'])
+            self.action_space = gym.spaces.Box(
+                np.array([-max_steering_angle]),
+                np.array([max_steering_angle]),
+                dtype=np.float32
+            )
+        else:
+            raise ValueError("Unsupported car_agent.action_mode: {}".format(action_mode))
 
         # Using image as input)
         image_shape = (state_height, state_width, consecutive_frames)

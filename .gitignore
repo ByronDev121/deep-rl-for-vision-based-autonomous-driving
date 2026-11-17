@@ -3,3 +3,4 @@
 # Ignore pycache in all directories
 */__pycache__/
 *.pyc
+*.mp4

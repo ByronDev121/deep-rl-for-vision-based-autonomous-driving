@@ -126,6 +126,7 @@ class CarAgent(CarClient):
         super().enableApiControl(True)
         if self.random_spawn:
             super().simSetVehiclePose(next_position, True)
+        self.previous_position = self._get_car_point()
 
     def observe(self, is_new):
         size = 0
@@ -175,14 +176,11 @@ class CarAgent(CarClient):
         distance_p1_to_p2p3 = lambda p1, p2, p3: abs(np.cross(p2 - p3, p3 - p1)) / norm(p2 - p3)
         distance_to_track_center = distance_p1_to_p2p3(car_point, way_point_one, way_point_two)
 
-        angle1 = self._get_angle(way_point_one, way_point_two)
-        angle2 = self._get_angle(car_point, self.previous_position)
-
         ang_diff = 0
-        if abs(angle2) > abs(angle1) and speed > 1:
-            ang_diff = abs(angle2) - abs(angle1)
-        elif speed > 1:
-            ang_diff = abs(angle1) - abs(angle2)
+        if speed > 1:
+            angle1 = self._get_angle(way_point_one, way_point_two)
+            angle2 = self._get_angle(car_point, self.previous_position)
+            ang_diff = abs((angle2 - angle1 + 90) % 180 - 90)
 
         # print("Angle difference: ", ang_diff)
         self.previous_position = car_point
@@ -210,14 +208,14 @@ class CarAgent(CarClient):
 
     def _get_two_closest_way_points(self, car_point):
 
-        if len(self.waypoints) == 0:
+        if len(self.waypoints) < 2:
             return None, None, None
         else:
             min_dist = 9999999
             second_min_dist = 9999999
             min_i = 0
             second_min_i = 0
-            for i in range(len(self.waypoints) - 1):
+            for i in range(len(self.waypoints)):
                 dist = math.sqrt(
                     pow((car_point[0] - self.waypoints[i][0]), 2) +
                     pow((car_point[1] - self.waypoints[i][1]), 2)

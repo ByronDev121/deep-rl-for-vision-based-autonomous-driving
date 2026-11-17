@@ -221,6 +221,7 @@ class DDQN:
                 self.epsilon *= self.epsilon_decay
 
         if self.train_in_loop:
+            self.terminate = True
             trainer_thread.join()
 
         return results
