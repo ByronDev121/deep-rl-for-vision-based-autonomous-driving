@@ -1,8 +1,13 @@
 """ Deep RL Algorithms for autonomous driving in AirSim
 """
 
+import os
 import sys
 import argparse
+
+# Allow running this script directly from any directory by putting the repo root on sys.path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import tensorflow as tf
 from keras.backend.tensorflow_backend import set_session
 

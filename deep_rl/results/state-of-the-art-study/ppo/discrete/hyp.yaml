@@ -1,6 +1,6 @@
 algorithm: ppo
 model_type: NatureCNN
-output_activation: linear
+output_activation: softmax
 double_deep: true
 with_hrs: false
 train_in_loop: true

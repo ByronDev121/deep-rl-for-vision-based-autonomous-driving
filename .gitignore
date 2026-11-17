@@ -1,0 +1,5 @@
+*.h5
+*.zip
+# Ignore pycache in all directories
+*/__pycache__/
+*.pyc

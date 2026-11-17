@@ -116,7 +116,7 @@ class AirSimCarEnv(gym.Env):
 
     @staticmethod
     def _speed_reward(max_speed, kmh):
-        return - 0.25 ** (max_speed / (max_speed + kmh ** 2))
+        return min(kmh, max_speed) / max_speed - 1
 
     @staticmethod
     def _distance_reward(distance):

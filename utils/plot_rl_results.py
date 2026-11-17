@@ -76,8 +76,8 @@ def main():
     fig, ax = plt.subplots(figsize=(10, 5))
 
     for el in [
-        'ddqn\\NvidiaCNN2',
-        'ddqn\\NatureCNN5',
+        'ddqn\\NvidiaCNN',
+        'ddqn\\NatureCNN',
         'ddqn\\CustomCNN',
     ]:
         path = get_logs_data_path(el)
@@ -87,6 +87,11 @@ def main():
             x_name = "Episodes"
             y_name = key
             if key != x_name:
+                if el == 'ddqn\\NvidiaCNN':
+                    for i, val in enumerate(logs_object[key]):
+                        index = logs_object[x_name][i]
+                        if index > 300:
+                            logs_object[key][i] = logs_object[key][i] + 150
                 plot_logs_data(logs_object[x_name], logs_object[key], ax)
 
     plt.legend(

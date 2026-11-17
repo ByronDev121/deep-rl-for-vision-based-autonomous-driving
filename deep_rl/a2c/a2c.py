@@ -21,7 +21,8 @@ class A2C_:
         self.model = A2C.load(model_path)
 
     def policy_action(self, state):
-        return self.model.predict(state)
+        # Greedy action for evaluation; EvalCallback selected best_model with deterministic=True
+        return self.model.predict(state, deterministic=True)
 
     def train(self, env, summary_writer):
 
