@@ -2,6 +2,36 @@
 
 <!---THIS DOCUMENT IS A WORK-IN-PROGRESS--->
 
+## Project video
+
+[Watch the master's thesis project showcase](https://drive.google.com/file/d/1wQ2afT3Y3cQFvZNkGJMyZaeOxyOqCw9a/view?usp=sharing)
+
+This repository contains the code and experiments from a **master's thesis
+project on deep reinforcement learning for vision-based autonomous driving**.
+The showcase demonstrates a trained DDQN agent driving in Microsoft AirSim
+without keyboard input, explains the reward design, and summarises the
+reward-function, spawn-location, CNN-architecture and algorithm studies.
+
+### Showcase highlights
+
+- A custom OpenAI Gym interface for Microsoft AirSim and a DDQN agent
+  implemented from scratch.
+- Vision-based driving with either discrete steering (DDQN, A2C and PPO) or
+  continuous steering (A2C and PPO).
+- Configurable reward terms for progress, track-centre distance, heading error
+  and collisions.
+- The angle-plus-centre reward configuration achieved approximately 4.9 times
+  the average reward of the terminal-only baseline in the reward ablation
+  study.
+- Four rotating spawn points achieved similar final reward while using a
+  shorter episode limit; this comparison is not a like-for-like learning-speed
+  claim.
+- NatureCNN and the custom CNN performed similarly and both outperformed
+  NvidiaCNN in the plotted architecture comparison.
+- PPO produced the strongest plotted result for both discrete and continuous
+  steering, while DDQN showed the lowest reward variance in the discrete
+  experiment.
+
 ## About the Project
 --------------
 This research investigation aims to study Deep Supervised Learning and Deep Reinforcement Learning in the context of Autonomous Driving and add advancements towards solving level 5 autonomy for self driving in a real-world setting. Concretely, we study a Deep Learning (DL) technique called Behavioral Cloning (BC). The goal is to further optimize the vanilla BC model through data augmentation, as well as neural network architecture design and hyperparameter tuning. We then investigate three Deep Reinforcement Learning algorithms, Deep Q-Networks (DQN), Advantage Actor-Critic (A2C), and Proximal Policy Optimization(PPO). We implement the DQN algorithm from scratch and use this algorithm as a baseline to study the effects of different reward function strategies, spawn location design, and Neural Network model architecture on the performance of the DRL agents. Once we have determined a robust DRL framework, we compare the performance of Deep Q-Networks (DQN), Advantage Actor-Critic (A2C), and Proximal Policy Optimization(PPO), where the A2C and PPO models are trained using the baselines implementation from OpenAI. Finally, we compare the best DSL-based and DRL-based autonomous vehicle controllers measured in an unseen race track environment.
